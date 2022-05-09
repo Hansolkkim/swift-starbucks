@@ -10,8 +10,7 @@
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
 		726656062829039400FCE427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656052829039400FCE427 /* AppDelegate.swift */; };
 		726656082829039400FCE427 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656072829039400FCE427 /* SceneDelegate.swift */; };
-		7266560A2829039400FCE427 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656092829039400FCE427 /* ViewController.swift */; };
-		7266560D2829039400FCE427 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7266560B2829039400FCE427 /* Main.storyboard */; };
+		7266560A2829039400FCE427 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656092829039400FCE427 /* LoginViewController.swift */; };
 		7266560F2829039600FCE427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7266560E2829039600FCE427 /* Assets.xcassets */; };
 		726656122829039600FCE427 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726656102829039600FCE427 /* LaunchScreen.storyboard */; };
 		7266561D2829039600FCE427 /* StarbucksCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7266561C2829039600FCE427 /* StarbucksCloneTests.swift */; };
@@ -44,8 +43,7 @@
 		726656022829039400FCE427 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726656052829039400FCE427 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		726656072829039400FCE427 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		726656092829039400FCE427 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7266560C2829039400FCE427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		726656092829039400FCE427 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7266560E2829039600FCE427 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		726656112829039600FCE427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		726656132829039600FCE427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,8 +116,7 @@
 			children = (
 				726656052829039400FCE427 /* AppDelegate.swift */,
 				726656072829039400FCE427 /* SceneDelegate.swift */,
-				726656092829039400FCE427 /* ViewController.swift */,
-				7266560B2829039400FCE427 /* Main.storyboard */,
+				726656092829039400FCE427 /* LoginViewController.swift */,
 				7266560E2829039600FCE427 /* Assets.xcassets */,
 				726656102829039600FCE427 /* LaunchScreen.storyboard */,
 				726656132829039600FCE427 /* Info.plist */,
@@ -164,7 +161,6 @@
 				9B0F3E2DDD226EEFB72B4E7A /* Pods-StarbucksCloneTests.debug.xcconfig */,
 				A442B7F9BA65EF3B08110667 /* Pods-StarbucksCloneTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -279,7 +275,6 @@
 			files = (
 				726656122829039600FCE427 /* LaunchScreen.storyboard in Resources */,
 				7266560F2829039600FCE427 /* Assets.xcassets in Resources */,
-				7266560D2829039400FCE427 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7266560A2829039400FCE427 /* ViewController.swift in Sources */,
+				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
 			);
@@ -446,14 +441,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7266560B2829039400FCE427 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7266560C2829039400FCE427 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		726656102829039600FCE427 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -594,7 +581,6 @@
 				INFOPLIST_FILE = StarbucksClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -623,7 +609,6 @@
 				INFOPLIST_FILE = StarbucksClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
