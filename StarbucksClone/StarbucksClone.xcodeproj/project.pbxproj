@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0274E8E4282A010E0074C3E8 /* LoginView.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
 		726656062829039400FCE427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656052829039400FCE427 /* AppDelegate.swift */; };
 		726656082829039400FCE427 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656072829039400FCE427 /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0274E8E4282A010E0074C3E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		726656022829039400FCE427 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 				726656052829039400FCE427 /* AppDelegate.swift */,
 				726656072829039400FCE427 /* SceneDelegate.swift */,
 				726656092829039400FCE427 /* LoginViewController.swift */,
+				0274E8E4282A010E0074C3E8 /* LoginView.swift */,
 				7266560E2829039600FCE427 /* Assets.xcassets */,
 				726656102829039600FCE427 /* LaunchScreen.storyboard */,
 				726656132829039600FCE427 /* Info.plist */,
@@ -404,6 +407,7 @@
 			files = (
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
+				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
