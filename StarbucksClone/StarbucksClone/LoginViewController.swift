@@ -8,9 +8,22 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+
+    private lazy var loginView = LoginView(frame: view.frame)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        view = loginView
+        loginView.action = self
     }
 }
 
+extension LoginViewController: LoginViewAction {
+    func userDidInput(_ input: LoginView.UserAction) {
+        switch input {
+        case .buttonTapped:
+            print("button tapped")
+        }
+    }
+}
