@@ -6,8 +6,6 @@
 //
 
 import SnapKit
-import Foundation
-import UIKit
 
 class LoginView: UIView {
     private let loginButton: UIButton = {
