@@ -7,6 +7,10 @@ target 'StarbucksClone' do
 
   # Pods for StarbucksClone
   pod 'SnapKit'
+  pod 'KakaoSDKUser'
+  pod 'KakaoSDKAuth'
+  pod 'KakaoSDKCommon'
+
   target 'StarbucksCloneTests' do
     inherit! :search_paths
     # Pods for testing

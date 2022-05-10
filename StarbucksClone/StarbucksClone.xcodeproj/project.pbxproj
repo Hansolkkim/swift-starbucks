@@ -42,6 +42,7 @@
 		0274E8E4282A010E0074C3E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		724CB065282A2D00001DD361 /* StarbucksClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarbucksClone.entitlements; sourceTree = "<group>"; };
 		726656022829039400FCE427 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726656052829039400FCE427 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		726656072829039400FCE427 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		726656042829039400FCE427 /* StarbucksClone */ = {
 			isa = PBXGroup;
 			children = (
+				724CB065282A2D00001DD361 /* StarbucksClone.entitlements */,
 				726656052829039400FCE427 /* AppDelegate.swift */,
 				726656072829039400FCE427 /* SceneDelegate.swift */,
 				726656092829039400FCE427 /* LoginViewController.swift */,
@@ -578,6 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StarbucksClone/StarbucksClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -592,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = practice.StarbucksClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solbony.practice.StarbucksClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -606,6 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StarbucksClone/StarbucksClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -620,7 +624,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = practice.StarbucksClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solbony.practice.StarbucksClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

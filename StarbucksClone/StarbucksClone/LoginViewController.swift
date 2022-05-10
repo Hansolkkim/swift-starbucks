@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import AuthenticationServices
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class LoginViewController: UIViewController {
 
@@ -23,37 +24,17 @@ extension LoginViewController: LoginViewAction {
     func userDidInput(_ input: LoginView.UserAction) {
         switch input {
         case .buttonTapped:
-            let appleIdProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIdProvider.createRequest()
-            request.requestedScopes = [.fullName]
-            
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
-        }
-    }
-}
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        print("loginWithKakaoAccount() success.")
 
-extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        guard let window = view.window else {
-            print("asd")
-            return ASPresentationAnchor()
-        }
-        return window
-    }
-}
-
-extension LoginViewController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-        default:
-            break
+                        //do something
+                        _ = oauthToken
+                    }
+                }
         }
     }
 }
