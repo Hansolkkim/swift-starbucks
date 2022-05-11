@@ -14,6 +14,7 @@
 		02DFA2E8282BA605005834D6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2E7282BA605005834D6 /* EventView.swift */; };
 		02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2E9282BA9B6005834D6 /* EventViewController.swift */; };
 		02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F0282BAD7E005834D6 /* UIColor+.swift */; };
+		02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F2282BF9D1005834D6 /* EventUseCase.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
 		724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB066282A3EB4001DD361 /* LoginUseCase.swift */; };
 		724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB068282A3EC8001DD361 /* KakaoLogin.swift */; };
@@ -54,6 +55,7 @@
 		02DFA2E7282BA605005834D6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		02DFA2E9282BA9B6005834D6 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		02DFA2F0282BAD7E005834D6 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		02DFA2F2282BF9D1005834D6 /* EventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUseCase.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		724CB065282A2D00001DD361 /* StarbucksClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarbucksClone.entitlements; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */,
 				724CB066282A3EB4001DD361 /* LoginUseCase.swift */,
+				02DFA2F2282BF9D1005834D6 /* EventUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */,
 				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
+				02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */,
 				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,
 				02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */,
 				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
