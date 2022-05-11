@@ -11,10 +11,10 @@ class SceneUseCase {
     private let userDefaultManager = UserDefaultManager()
 
     func selectRootViewController() -> ViewControllerType {
-        guard let loginResult = userDefaultManager.getStringFromUserDefault(by: .userLoginToken) else {
+        guard userDefaultManager.getStringFromUserDefault(by: .userLoginToken) != nil else {
             return .LoginViewController
         }
-        guard let eventResult = userDefaultManager.getStringFromUserDefault(by: .userLoginToken) else {
+        guard userDefaultManager.getBooleanFromUserDefault() != false else {
             return .EventViewController
         }
         return .HomeViewController

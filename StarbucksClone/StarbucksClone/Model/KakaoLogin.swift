@@ -18,7 +18,7 @@ struct KakaoLogin {
                 completion(.success(accessToken))
             }
         }
-        UserApi.shared.loginWithKakaoAccount(scopes: [], nonce: nil, completion: loginApiCompletion)
+        UserApi.shared.loginWithKakaoAccount(nonce: nil, completion: loginApiCompletion)
     }
     
     func getUserNickname(completion: @escaping (Result<String, KakaoLoginError>) -> ()) {
