@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0274E8E4282A010E0074C3E8 /* LoginView.swift */; };
+		02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2DC282B8589005834D6 /* UserDefaultManager.swift */; };
+		02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2DE282B8C3C005834D6 /* UserData.swift */; };
+		02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
+		724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB066282A3EB4001DD361 /* LoginUseCase.swift */; };
+		724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB068282A3EC8001DD361 /* KakaoLogin.swift */; };
 		726656062829039400FCE427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656052829039400FCE427 /* AppDelegate.swift */; };
 		726656082829039400FCE427 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656072829039400FCE427 /* SceneDelegate.swift */; };
 		7266560A2829039400FCE427 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656092829039400FCE427 /* LoginViewController.swift */; };
@@ -40,8 +45,14 @@
 
 /* Begin PBXFileReference section */
 		0274E8E4282A010E0074C3E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		02DFA2DC282B8589005834D6 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		02DFA2DE282B8C3C005834D6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneUseCase.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		724CB065282A2D00001DD361 /* StarbucksClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarbucksClone.entitlements; sourceTree = "<group>"; };
+		724CB066282A3EB4001DD361 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		724CB068282A3EC8001DD361 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 		726656022829039400FCE427 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726656052829039400FCE427 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		726656072829039400FCE427 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +127,7 @@
 		726656042829039400FCE427 /* StarbucksClone */ = {
 			isa = PBXGroup;
 			children = (
+				724CB065282A2D00001DD361 /* StarbucksClone.entitlements */,
 				726656052829039400FCE427 /* AppDelegate.swift */,
 				726656072829039400FCE427 /* SceneDelegate.swift */,
 				726656092829039400FCE427 /* LoginViewController.swift */,
@@ -123,6 +135,11 @@
 				7266560E2829039600FCE427 /* Assets.xcassets */,
 				726656102829039600FCE427 /* LaunchScreen.storyboard */,
 				726656132829039600FCE427 /* Info.plist */,
+				724CB066282A3EB4001DD361 /* LoginUseCase.swift */,
+				724CB068282A3EC8001DD361 /* KakaoLogin.swift */,
+				02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */,
+				02DFA2DC282B8589005834D6 /* UserDefaultManager.swift */,
+				02DFA2DE282B8C3C005834D6 /* UserData.swift */,
 			);
 			path = StarbucksClone;
 			sourceTree = "<group>";
@@ -406,9 +423,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
+				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
+				02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
+				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,
+				02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */,
+				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +600,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StarbucksClone/StarbucksClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -592,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = practice.StarbucksClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solbony.practice.StarbucksClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -606,6 +629,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StarbucksClone/StarbucksClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -620,7 +644,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = practice.StarbucksClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solbony.practice.StarbucksClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
