@@ -6,9 +6,11 @@
 //
 
 import SnapKit
-import UIKit
 
-class EventView: UIView {
+final class EventView: UIView {
+    
+    weak var action: EventViewAction?
+    
     private let outerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.init(hexString: "#DCEAE2")
@@ -21,7 +23,7 @@ class EventView: UIView {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    private let eventNeverSeeAgainButton: UIButton = {
+    private let neverSeeAgainButton: UIButton = {
         let button = UIButton()
         button.setTitle("다시보지않기", for: .normal)
         button.setTitleColor(.systemGreen, for: .normal)
@@ -43,13 +45,16 @@ class EventView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
         backgroundColor = .white
+        setupLayout()
+        addAction()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        backgroundColor = .white
         setupLayout()
+        addAction()
     }
 
     private func setupLayout() {
@@ -66,8 +71,8 @@ class EventView: UIView {
             make.bottom.equalTo(outerView.snp.bottom)
         }
 
-        addSubview(eventNeverSeeAgainButton)
-        eventNeverSeeAgainButton.snp.makeConstraints { make in
+        addSubview(neverSeeAgainButton)
+        neverSeeAgainButton.snp.makeConstraints { make in
             make.top.equalTo(outerView.snp.bottom).offset(10)
             make.leading.equalTo(snp.leading).offset(15)
             make.trailing.equalTo(snp.centerX).offset(-10)
@@ -76,10 +81,31 @@ class EventView: UIView {
 
         addSubview(closeButton)
         closeButton.snp.makeConstraints { make in
-            make.centerY.equalTo(eventNeverSeeAgainButton.snp.centerY)
+            make.centerY.equalTo(neverSeeAgainButton.snp.centerY)
             make.leading.equalTo(snp.centerX).offset(10)
-            make.height.equalTo(eventNeverSeeAgainButton)
+            make.height.equalTo(neverSeeAgainButton)
             make.trailing.equalTo(snp.trailing).offset(-15)
         }
     }
+    
+    private func addAction() {
+        neverSeeAgainButton.addAction(UIAction (handler: { [weak self] _ in
+            self?.action?.userDidInput(.neverSeeAgainButtonTapped)
+        }) , for: .touchUpInside)
+        
+        closeButton.addAction(UIAction (handler: { [weak self] _ in
+            self?.action?.userDidInput(.closeButtonTapped)
+        }) , for: .touchUpInside)
+    }
+}
+
+extension EventView {
+    enum UserAction {
+        case closeButtonTapped
+        case neverSeeAgainButtonTapped
+    }
+}
+
+protocol EventViewAction: AnyObject{
+    func userDidInput(_ input: EventView.UserAction)
 }
