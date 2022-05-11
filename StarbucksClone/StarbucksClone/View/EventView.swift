@@ -6,6 +6,7 @@
 //
 
 import SnapKit
+import UIKit
 
 class EventView: UIView {
     private let outerView: UIView = {
@@ -24,6 +25,9 @@ class EventView: UIView {
         let button = UIButton()
         button.setTitle("다시보지않기", for: .normal)
         button.setTitleColor(.systemGreen, for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.systemGreen.cgColor
+        button.layer.cornerRadius = 30
         return button
     }()
     private let closeButton: UIButton = {
@@ -31,6 +35,9 @@ class EventView: UIView {
         button.setTitle("닫기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemGreen
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.systemGreen.cgColor
+        button.layer.cornerRadius = 30
         return button
     }()
 
@@ -57,6 +64,22 @@ class EventView: UIView {
             make.top.equalTo(outerView.snp.top).offset(30)
             make.trailing.leading.equalTo(outerView)
             make.bottom.equalTo(outerView.snp.bottom)
+        }
+
+        addSubview(eventNeverSeeAgainButton)
+        eventNeverSeeAgainButton.snp.makeConstraints { make in
+            make.top.equalTo(outerView.snp.bottom).offset(10)
+            make.leading.equalTo(snp.leading).offset(15)
+            make.trailing.equalTo(snp.centerX).offset(-10)
+            make.bottom.equalTo(snp.bottom).offset(-80)
+        }
+
+        addSubview(closeButton)
+        closeButton.snp.makeConstraints { make in
+            make.centerY.equalTo(eventNeverSeeAgainButton.snp.centerY)
+            make.leading.equalTo(snp.centerX).offset(10)
+            make.height.equalTo(eventNeverSeeAgainButton)
+            make.trailing.equalTo(snp.trailing).offset(-15)
         }
     }
 }
