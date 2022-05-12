@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Welcome: Codable {
+struct StarbuckstDTO: Codable {
     let title, range, target, description: String
     let eventProducts: String
 
