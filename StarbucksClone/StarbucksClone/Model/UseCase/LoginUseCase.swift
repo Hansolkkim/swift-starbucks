@@ -7,13 +7,15 @@
 
 class LoginUseCase{
     private let kakaoLogin = KakaoLogin()
+    private let userDefaultManager = UserDefaultManager()
+    private var userData = UserData()
     
     func kakaoLoginRequest(){
         kakaoLogin.loginRequest { [weak self] result in
             guard let self = self else { return }
             switch result{
             case .success(let token):
-                print("\(token) Success")
+                self.userData.setToken(token: token)
                 self.requestNickName()
             case .failure(let error):
                 print(error)
@@ -22,10 +24,12 @@ class LoginUseCase{
     }
     
     private func requestNickName(){
-        kakaoLogin.getUserNickname { result in
+        kakaoLogin.getUserNickname { [weak self] result in
+            guard let self = self else { return }
             switch result{
             case .success(let name):
-                print("nickname \(name) success")
+                self.userData.setNickName(nickname: name)
+                self.userDefaultManager.saveLoginToken(self.userData)
             case .failure(let error):
                 print(error)
             }

@@ -18,8 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             let selectedViewControllerType = sceneUseCase.selectRootViewController()
-            window.rootViewController = makeEventViewController()
-            //window.rootViewController = EventViewController()
+            window.rootViewController = makeSelectedViewController(by: selectedViewControllerType)
             self.window = window
             window.makeKeyAndVisible()
         }
