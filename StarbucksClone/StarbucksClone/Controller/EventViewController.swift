@@ -10,9 +10,20 @@ import UIKit
 class EventViewController: UIViewController {
 
     private lazy var eventView = EventView(frame: view.frame)
+    private let usecase = EventUseCase()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = eventView
+        eventView.action = self
+    }
+}
+
+extension EventViewController: EventViewAction {
+    func userDidInput(_ input: EventView.UserAction) {
+        if input == .neverSeeAgainButtonTapped {
+            usecase.saveNeverSeeAgainRequest()
+        }
+        // TODO: HomeVC로 이동
     }
 }
