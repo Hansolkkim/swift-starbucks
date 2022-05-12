@@ -15,13 +15,14 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = eventView
+        
         eventView.action = self
     }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
+        usecase.delegate = self
         usecase.setEventDTO(starbuckstDTO: starbuckstDTO)
     }
-    
 }
 
 extension EventViewController: EventViewAction {
@@ -30,5 +31,13 @@ extension EventViewController: EventViewAction {
             usecase.saveNeverSeeAgainRequest()
         }
         // TODO: HomeVC로 이동
+    }
+}
+
+extension EventViewController: EventUsecaseDelegate{
+    func eventTitleDidUpdate(title: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.eventView.setTitleLabel(title: title)
+        }
     }
 }

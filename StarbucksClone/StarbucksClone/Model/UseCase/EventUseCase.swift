@@ -7,9 +7,15 @@
 
 import Foundation
 
-class EventUseCase {
+final class EventUseCase {
     private let userDefaultManager = UserDefaultManager()
-    private(set) var starbuckstDTO: StarbuckstDTO?
+    private(set) var starbuckstDTO: StarbuckstDTO? {
+        didSet{
+            guard let title = starbuckstDTO?.title else { return }
+            delegate?.eventTitleDidUpdate(title: title)
+        }
+    }
+    weak var delegate: EventUsecaseDelegate?
     
     func saveNeverSeeAgainRequest() {
         userDefaultManager.saveEventNeverSeeAgain()
@@ -18,4 +24,8 @@ class EventUseCase {
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
         self.starbuckstDTO = starbuckstDTO
     }
+}
+
+protocol EventUsecaseDelegate: AnyObject {
+    func eventTitleDidUpdate(title: String)
 }

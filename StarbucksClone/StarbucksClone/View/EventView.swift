@@ -111,6 +111,13 @@ final class EventView: UIView {
             self?.action?.userDidInput(.closeButtonTapped)
         }) , for: .touchUpInside)
     }
+    
+    func setTitleLabel(title: String){
+        DispatchQueue.main.async { [weak self] in
+            print(title)
+            self?.titleLabel.text = title
+        }
+    }
 }
 
 extension EventView {
