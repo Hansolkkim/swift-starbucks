@@ -23,6 +23,12 @@ final class EventView: UIView {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = .white
+        return label
+    }()
     private let neverSeeAgainButton: UIButton = {
         let button = UIButton()
         button.setTitle("다시보지않기", for: .normal)
@@ -71,6 +77,12 @@ final class EventView: UIView {
             make.top.equalTo(outerView.snp.top).offset(30)
             make.trailing.leading.equalTo(outerView)
             make.bottom.equalTo(outerView.snp.bottom)
+        }
+
+        outerView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(eventImageView).offset(10)
+            make.centerX.equalTo(self)
         }
 
         addSubview(neverSeeAgainButton)
