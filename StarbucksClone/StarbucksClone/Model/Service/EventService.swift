@@ -36,7 +36,7 @@ struct EventService {
             }
 
             completion(.success(decodedData))
-        }
+        }.resume()
     }
 
     private func decodeData(of data: Data) -> StarbuckstDTO? {

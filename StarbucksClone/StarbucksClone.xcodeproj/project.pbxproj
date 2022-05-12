@@ -66,7 +66,6 @@
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarbuckstDTO.swift; path = StarbucksClone/Model/StarbuckstDTO.swift; sourceTree = SOURCE_ROOT; };
-		724CB065282A2D00001DD361 /* StarbucksClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarbucksClone.entitlements; sourceTree = "<group>"; };
 		724CB066282A3EB4001DD361 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		724CB068282A3EC8001DD361 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 		726656022829039400FCE427 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				02DFA2EF282BAD71005834D6 /* Extension */,
-				724CB065282A2D00001DD361 /* StarbucksClone.entitlements */,
 				726656052829039400FCE427 /* AppDelegate.swift */,
 				726656072829039400FCE427 /* SceneDelegate.swift */,
 				02DFA2E4282B9339005834D6 /* Model */,

@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             let selectedViewControllerType = sceneUseCase.selectRootViewController()
-            window.rootViewController = makeSelectedViewController(by: selectedViewControllerType)
+            window.rootViewController = makeEventViewController()
+            //window.rootViewController = EventViewController()
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -41,9 +42,22 @@ extension SceneDelegate {
         case .LoginViewController:
             return LoginViewController()
         case .EventViewController:
-            return LoginViewController() // EventViewController 구현 후 수정 예정
+            return makeEventViewController()
         case .HomeViewController:
             return LoginViewController() // HomeViewController 구현 후 수정 예정
         }
+    }
+    
+    private func makeEventViewController() -> UIViewController{
+        let eventViewController = EventViewController()
+        sceneUseCase.getEventData { result in
+            switch result{
+            case .success(let starbuckst):
+                eventViewController.setEventDTO(starbuckstDTO: starbuckst)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        return eventViewController
     }
 }

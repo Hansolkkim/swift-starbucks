@@ -9,8 +9,13 @@ import Foundation
 
 class EventUseCase {
     private let userDefaultManager = UserDefaultManager()
-
+    private(set) var starbuckstDTO: StarbuckstDTO?
+    
     func saveNeverSeeAgainRequest() {
         userDefaultManager.saveEventNeverSeeAgain()
+    }
+    
+    func setEventDTO(starbuckstDTO: StarbuckstDTO){
+        self.starbuckstDTO = starbuckstDTO
     }
 }

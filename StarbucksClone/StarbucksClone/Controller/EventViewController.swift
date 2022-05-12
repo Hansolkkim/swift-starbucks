@@ -17,6 +17,11 @@ class EventViewController: UIViewController {
         view = eventView
         eventView.action = self
     }
+    
+    func setEventDTO(starbuckstDTO: StarbuckstDTO){
+        usecase.setEventDTO(starbuckstDTO: starbuckstDTO)
+    }
+    
 }
 
 extension EventViewController: EventViewAction {

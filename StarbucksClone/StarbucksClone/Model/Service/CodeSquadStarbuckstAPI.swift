@@ -15,7 +15,7 @@ enum CodeSquadStarbuckst {
     var url: URL? {
         switch self {
         case .starbuckstLoading:
-            return URL(string: Self.baseURL + "starbuckst-loading.json")
+            return URL(string: Self.baseURL + "/starbuckst-loading.json")
         }
     }
 

@@ -10,7 +10,9 @@ import Foundation
 struct EventRepository {
     let eventService = EventService()
     
-    func getEventData() {
-        eventService.fetchEventData()
+    func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void) {
+        eventService.fetchData(of: .starbuckstLoading) { result in
+            completion(result)
+        }
     }
 }
