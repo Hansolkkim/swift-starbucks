@@ -19,6 +19,7 @@
 		02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F8282CA50A005834D6 /* EventService.swift */; };
 		02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
+		7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */; };
 		724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB066282A3EB4001DD361 /* LoginUseCase.swift */; };
 		724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB068282A3EC8001DD361 /* KakaoLogin.swift */; };
 		726656062829039400FCE427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656052829039400FCE427 /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSquadStarbuckstAPI.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarbuckstDTO.swift; path = StarbucksClone/Model/StarbuckstDTO.swift; sourceTree = SOURCE_ROOT; };
 		724CB065282A2D00001DD361 /* StarbucksClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarbucksClone.entitlements; sourceTree = "<group>"; };
 		724CB066282A3EB4001DD361 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		724CB068282A3EC8001DD361 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		02DFA2FC282CA674005834D6 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
 				02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */,
 				02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */,
+				7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */,
 				02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */,
 				02DFA2F5282CA209005834D6 /* EventRepository.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
