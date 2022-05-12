@@ -36,3 +36,8 @@ extension UIColor {
         return String(format:"#%06x", rgb)
     }
 }
+
+extension UIColor {
+    static let eventImageGreen = UIColor.init(hexString: "#DCEAE2")
+    static let starbuckstButtonGreen = UIColor.init(hexString: "#4AA568")
+}

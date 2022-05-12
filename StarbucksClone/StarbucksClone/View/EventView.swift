@@ -13,7 +13,7 @@ final class EventView: UIView {
     
     private let outerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(hexString: "#DCEAE2")
+        view.backgroundColor = UIColor.eventImageGreen
         return view
     }()
     private let eventImageView: UIImageView = {
@@ -26,20 +26,22 @@ final class EventView: UIView {
     private let neverSeeAgainButton: UIButton = {
         let button = UIButton()
         button.setTitle("다시보지않기", for: .normal)
-        button.setTitleColor(.systemGreen, for: .normal)
+        button.setTitleColor(.starbuckstButtonGreen, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemGreen.cgColor
-        button.layer.cornerRadius = 30
+        button.layer.borderColor = UIColor.starbuckstButtonGreen.cgColor
+        button.layer.cornerRadius = 20
         return button
     }()
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("닫기", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemGreen
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        button.backgroundColor = .starbuckstButtonGreen
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemGreen.cgColor
-        button.layer.cornerRadius = 30
+        button.layer.borderColor = UIColor.starbuckstButtonGreen.cgColor
+        button.layer.cornerRadius = 20
         return button
     }()
 
@@ -76,7 +78,7 @@ final class EventView: UIView {
             make.top.equalTo(outerView.snp.bottom).offset(10)
             make.leading.equalTo(snp.leading).offset(15)
             make.trailing.equalTo(snp.centerX).offset(-10)
-            make.bottom.equalTo(snp.bottom).offset(-80)
+            make.bottom.equalTo(snp.bottom).offset(-100)
         }
 
         addSubview(closeButton)
