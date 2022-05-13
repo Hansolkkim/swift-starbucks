@@ -14,7 +14,7 @@ class EventViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view = eventView
         eventView.action = self
     }
     

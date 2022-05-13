@@ -35,8 +35,6 @@ extension LoginViewController: LoginUseCaseDelegate {
         var nextViewController: UIViewController
 
         switch type {
-        case .LoginViewController:
-            return
         case .EventViewController:
             nextViewController =  EventViewController()
             usecase.getEventData { result in
@@ -49,7 +47,9 @@ extension LoginViewController: LoginUseCaseDelegate {
                 }
             }
         case .HomeViewController:
-            nextViewController =  EventViewController() // HomeViewController 구현 후 변경
+            nextViewController =  HomeViewController() // HomeViewController 구현 후 변경
+        default:
+            return
         }
 
         nextViewController.modalPresentationStyle = .fullScreen

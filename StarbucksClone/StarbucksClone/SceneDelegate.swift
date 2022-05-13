@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             let selectedViewControllerType = sceneUseCase.selectRootViewController()
             window.rootViewController = makeSelectedViewController(by: selectedViewControllerType)
+//            window.rootViewController = makeEventViewController()
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -43,7 +44,7 @@ extension SceneDelegate {
         case .EventViewController:
             return makeEventViewController()
         case .HomeViewController:
-            return LoginViewController() // HomeViewController 구현 후 수정 예정
+            return HomeViewController()
         }
     }
     
