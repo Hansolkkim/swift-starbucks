@@ -29,7 +29,14 @@ extension EventViewController: EventViewAction {
         if input == .neverSeeAgainButtonTapped {
             usecase.saveNeverSeeAgainRequest()
         }
-        // TODO: HomeVC로 이동
+        self.presentNextViewController()
+    }
+
+    private func presentNextViewController() {
+        let nextViewController = HomeViewController()
+        nextViewController.modalPresentationStyle = .fullScreen
+        nextViewController.modalTransitionStyle = .flipHorizontal
+        present(nextViewController, animated: true, completion: nil)
     }
 }
 
