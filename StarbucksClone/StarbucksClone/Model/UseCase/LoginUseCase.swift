@@ -43,7 +43,7 @@ class LoginUseCase{
     }
 
     private func selectViewControllerType() -> ViewControllerType {
-        if userDefaultManager.getBooleanFromUserDefault() != false {
+        if !userDefaultManager.getBooleanFromUserDefault() {
             return .EventViewController
         }
 

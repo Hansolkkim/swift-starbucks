@@ -114,7 +114,6 @@ final class EventView: UIView {
     
     func setTitleLabel(title: String){
         DispatchQueue.main.async { [weak self] in
-            print(title)
             self?.titleLabel.text = title
         }
     }
