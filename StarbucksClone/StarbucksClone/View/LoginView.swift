@@ -10,9 +10,16 @@ import SnapKit
 class LoginView: UIView {
     private let loginButton: UIButton = {
         let button = UIButton()
+        button.setImage(.init(named: "kakaoLogo"), for: .normal)
+        button.tintColor = .black
+        button.setTitle(" Kakao ID로 로그인", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("Apple ID로 로그인", for: .normal)
-        button.layer.borderWidth = 1.0
+        button.backgroundColor = .systemYellow
+        button.clipsToBounds = true
+        button.layer.borderWidth = 2.0
+        button.layer.borderColor = UIColor.systemYellow.cgColor
+        button.layer.cornerRadius = 15
         return button
     }()
 
@@ -36,8 +43,8 @@ class LoginView: UIView {
         addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
             make.center.equalTo(snp.center)
-            make.width.equalTo(300)
-            make.height.equalTo(300)
+            make.width.equalTo(200)
+            make.height.equalTo(40)
         }
     }
 

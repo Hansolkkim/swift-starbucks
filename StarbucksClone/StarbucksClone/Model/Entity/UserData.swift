@@ -8,6 +8,14 @@
 import Foundation
 
 struct UserData {
-    let token: String
-    let nickname: String
+    private(set) var token: String?
+    private(set) var nickname: String?
+    
+    mutating func setToken(token: String){
+        self.token = token
+    }
+    
+    mutating func setNickName(nickname: String){
+        self.nickname = nickname
+    }
 }

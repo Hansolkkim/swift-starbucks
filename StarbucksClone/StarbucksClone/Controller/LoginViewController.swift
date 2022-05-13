@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view = loginView
         loginView.action = self
+        usecase.delegate = self
     }
 }
 
@@ -26,5 +27,32 @@ extension LoginViewController: LoginViewAction {
         case .buttonTapped:
             usecase.kakaoLoginRequest()
         }
+    }
+}
+
+extension LoginViewController: LoginUseCaseDelegate {
+    func presentNextViewController(_ type: ViewControllerType) {
+        var nextViewController: UIViewController
+
+        switch type {
+        case .EventViewController:
+            nextViewController =  EventViewController()
+            usecase.getEventData { result in
+                switch result{
+                case .success(let starbuckst):
+                    let eventViewController = nextViewController as? EventViewController
+                    eventViewController?.setEventDTO(starbuckstDTO: starbuckst)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case .HomeViewController:
+            nextViewController =  HomeViewController() // HomeViewController 구현 후 변경
+        default:
+            return
+        }
+
+        nextViewController.modalPresentationStyle = .fullScreen
+        present(nextViewController, animated: true, completion: nil)
     }
 }

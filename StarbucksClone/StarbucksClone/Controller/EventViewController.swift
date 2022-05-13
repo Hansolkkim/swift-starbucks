@@ -15,7 +15,6 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = eventView
-        
         eventView.action = self
     }
     
@@ -37,6 +36,7 @@ extension EventViewController: EventViewAction {
 extension EventViewController: EventUsecaseDelegate{
     func eventTitleDidUpdate(title: String) {
         DispatchQueue.main.async { [weak self] in
+            self?.view = self?.eventView
             self?.eventView.setTitleLabel(title: title)
         }
     }
