@@ -19,11 +19,12 @@ class EventViewController: UIViewController, DependencySetable {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        
+        DependencyInjector.injecting(to: self)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        DependencyInjector.injecting(to: self)
     }
     
     override func viewDidLoad() {
