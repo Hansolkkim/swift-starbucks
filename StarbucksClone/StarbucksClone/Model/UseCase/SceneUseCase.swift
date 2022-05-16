@@ -7,7 +7,12 @@
 
 import Foundation
 
-class SceneUseCase {
+protocol SceneManagable{
+    func selectRootViewController() -> ViewControllerType
+    func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void)
+}
+
+final class SceneUseCase: SceneManagable {
     private let userDefaultManager = UserDefaultManager()
     private let eventRepository = EventRepository()
     
