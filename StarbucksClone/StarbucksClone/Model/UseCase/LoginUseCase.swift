@@ -46,7 +46,6 @@ class LoginUseCase{
         if !userDefaultManager.getBooleanFromUserDefault() {
             return .EventViewController
         }
-
         return .HomeViewController
     }
 

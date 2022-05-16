@@ -16,10 +16,10 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
         view = eventView
         eventView.action = self
+        eventView.setTitleLabel(title: usecase.starbuckstDTO?.title ?? "nil")
     }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
-        usecase.delegate = self
         usecase.setEventDTO(starbuckstDTO: starbuckstDTO)
     }
 }
@@ -35,16 +35,6 @@ extension EventViewController: EventViewAction {
     private func presentNextViewController() {
         let nextViewController = HomeViewController()
         nextViewController.modalPresentationStyle = .fullScreen
-        nextViewController.modalTransitionStyle = .flipHorizontal
         present(nextViewController, animated: true, completion: nil)
-    }
-}
-
-extension EventViewController: EventUsecaseDelegate{
-    func eventTitleDidUpdate(title: String) {
-        DispatchQueue.main.async { [weak self] in
-            self?.view = self?.eventView
-            self?.eventView.setTitleLabel(title: title)
-        }
     }
 }

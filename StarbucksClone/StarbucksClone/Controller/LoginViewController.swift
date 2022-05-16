@@ -32,27 +32,32 @@ extension LoginViewController: LoginViewAction {
 
 extension LoginViewController: LoginUseCaseDelegate {
     func presentNextViewController(_ type: ViewControllerType) {
-        var nextViewController: UIViewController
-
         switch type {
         case .EventViewController:
-            nextViewController =  EventViewController()
-            usecase.getEventData { result in
-                switch result{
-                case .success(let starbuckst):
-                    let eventViewController = nextViewController as? EventViewController
-                    eventViewController?.setEventDTO(starbuckstDTO: starbuckst)
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            presentEventViewController()
         case .HomeViewController:
-            nextViewController =  HomeViewController() // HomeViewController 구현 후 변경
+            let homeViewController =  HomeViewController() // HomeViewController 구현 후 변경
+            homeViewController.modalPresentationStyle = .fullScreen
+            present(homeViewController, animated: true, completion: nil)
         default:
             return
         }
-
-        nextViewController.modalPresentationStyle = .fullScreen
-        present(nextViewController, animated: true, completion: nil)
+    }
+    
+    private func presentEventViewController(){
+        usecase.getEventData { result in
+            switch result{
+            case .success(let starbuckst):
+                DispatchQueue.main.async { [weak self] in
+                    let eventViewController = EventViewController()
+                    eventViewController.setEventDTO(starbuckstDTO: starbuckst)
+                    eventViewController.modalPresentationStyle = .fullScreen
+                    self?.present(eventViewController, animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
+
