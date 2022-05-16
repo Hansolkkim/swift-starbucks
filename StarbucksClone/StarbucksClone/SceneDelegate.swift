@@ -10,10 +10,21 @@ import KakaoSDKCommon
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let appKey = "9d618f74a6d63d44fe745da0f480233f"
+    typealias DependencyType = SceneDependency
+    var dependency: DependencyType? {
+        didSet{
+            self.sceneManagable = dependency?.manager
+        }
+    }
     private var sceneManagable: SceneManagable?
     //private let sceneUseCase = SceneUseCase(userDefaultManagable: UserDefaultManager())
     var window: UIWindow?
 
+    override init(){
+        super.init()
+        DependencyInjector.injecting(to: self)
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         KakaoSDK.initSDK(appKey: appKey)
         if let windowScene = scene as? UIWindowScene {
@@ -33,6 +44,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if AuthApi.isKakaoTalkLoginUrl(url) {
             _ = AuthController.handleOpenUrl(url: url)
         }
+    }
+}
+extension SceneDelegate: DependencySetable {
+    func setDependency(dependency: SceneDependency) {
+        self.dependency = dependency
     }
 }
 
