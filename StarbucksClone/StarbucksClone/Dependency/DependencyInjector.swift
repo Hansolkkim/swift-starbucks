@@ -16,6 +16,7 @@ final class DependencyInjector {
     }
 }
 
+
 protocol DependencySetable{
     associatedtype DependencyType
     func setDependency(dependency: DependencyType)

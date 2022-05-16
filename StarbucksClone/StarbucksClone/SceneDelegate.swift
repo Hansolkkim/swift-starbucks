@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.sceneManagable = dependency?.manager
         }
     }
+    
     private var sceneManagable: SceneManagable?
     //private let sceneUseCase = SceneUseCase(userDefaultManagable: UserDefaultManager())
     var window: UIWindow?
