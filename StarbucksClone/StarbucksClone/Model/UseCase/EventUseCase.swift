@@ -7,12 +7,25 @@
 
 import Foundation
 
+protocol EventManagable {
+    var starbuckstDTO: StarbuckstDTO? { get }
+    func saveNeverSeeAgainRequest()
+    func setEventDTO(starbuckstDTO: StarbuckstDTO)
+}
+
 final class EventUseCase {
-    private let userDefaultManager = UserDefaultManager()
+    private let userDefaultManagable: EventNeverSeeDataSavable
     private(set) var starbuckstDTO: StarbuckstDTO?
     
+    init(userDefaultManagable: EventNeverSeeDataSavable) {
+        self.userDefaultManagable = userDefaultManagable
+    }
+}
+
+extension EventUseCase: EventManagable {
+    
     func saveNeverSeeAgainRequest() {
-        userDefaultManager.saveEventNeverSeeAgain()
+        userDefaultManagable.saveEventNeverSeeAgain()
     }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
