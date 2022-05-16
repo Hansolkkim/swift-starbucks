@@ -10,7 +10,7 @@ import UIKit
 class EventViewController: UIViewController {
 
     private lazy var eventView = EventView(frame: view.frame)
-    private let usecase = EventUseCase()
+    private var usecase: EventManagable?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,14 @@ class EventViewController: UIViewController {
     }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
-        usecase.setEventDTO(starbuckstDTO: starbuckstDTO)
+        usecase?.setEventDTO(starbuckstDTO: starbuckstDTO)
     }
 }
 
 extension EventViewController: EventViewAction {
     func userDidInput(_ input: EventView.UserAction) {
         if input == .neverSeeAgainButtonTapped {
-            usecase.saveNeverSeeAgainRequest()
+            usecase?.saveNeverSeeAgainRequest()
         }
         present(HomeViewController.create(), animated: true, completion: nil)
     }
