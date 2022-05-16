@@ -16,10 +16,10 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
         view = eventView
         eventView.action = self
+        eventView.setTitleLabel(title: usecase.starbuckstDTO?.title ?? "nil")
     }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
-        usecase.delegate = self
         usecase.setEventDTO(starbuckstDTO: starbuckstDTO)
     }
 }
@@ -29,15 +29,6 @@ extension EventViewController: EventViewAction {
         if input == .neverSeeAgainButtonTapped {
             usecase.saveNeverSeeAgainRequest()
         }
-        // TODO: HomeVC로 이동
-    }
-}
-
-extension EventViewController: EventUsecaseDelegate{
-    func eventTitleDidUpdate(title: String) {
-        DispatchQueue.main.async { [weak self] in
-            self?.view = self?.eventView
-            self?.eventView.setTitleLabel(title: title)
-        }
+        present(HomeViewController.create(), animated: true, completion: nil)
     }
 }

@@ -15,7 +15,7 @@ class SceneUseCase {
         guard userDefaultManager.getStringFromUserDefault(by: .userLoginToken) != nil else {
             return .LoginViewController
         }
-        guard userDefaultManager.getBooleanFromUserDefault() != false else {
+        guard userDefaultManager.getBooleanFromUserDefault() else {
             return .EventViewController
         }
         return .HomeViewController
