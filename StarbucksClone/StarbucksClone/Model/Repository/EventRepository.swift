@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol eventDataGettable {
+    func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void)
+}
+
 struct EventRepository {
     let eventService = EventService()
     
