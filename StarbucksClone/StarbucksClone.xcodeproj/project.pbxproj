@@ -20,6 +20,7 @@
 		02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F8282CA50A005834D6 /* EventService.swift */; };
 		02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
+		720B05372831ECD1000C630F /* ViewControllerComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B05362831ECD1000C630F /* ViewControllerComponents.swift */; };
 		7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */; };
 		724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB066282A3EB4001DD361 /* LoginUseCase.swift */; };
 		724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB068282A3EC8001DD361 /* KakaoLogin.swift */; };
@@ -67,6 +68,7 @@
 		02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSquadStarbuckstAPI.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		720B05362831ECD1000C630F /* ViewControllerComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerComponents.swift; sourceTree = "<group>"; };
 		7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarbuckstDTO.swift; path = StarbucksClone/Model/StarbuckstDTO.swift; sourceTree = SOURCE_ROOT; };
 		724CB066282A3EB4001DD361 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		724CB068282A3EC8001DD361 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				02DFA2DE282B8C3C005834D6 /* UserData.swift */,
+				720B05362831ECD1000C630F /* ViewControllerComponents.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */,
 				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,
+				720B05372831ECD1000C630F /* ViewControllerComponents.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
 				02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */,
 				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,

@@ -11,6 +11,9 @@ import KakaoSDKCommon
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let appKey = "9d618f74a6d63d44fe745da0f480233f"
     private let sceneUseCase = SceneUseCase()
+    //private lazy var viewControllers = [HomeViewController(), PayViewController(), OrderViewController(), FavoriteViewController()]
+    private lazy var viewControllers = [HomeViewController(), HomeViewController(), HomeViewController(), HomeViewController()]
+    private let viewControllerNames = ["Home", "Pay", "Order", "Favorite"]
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -44,7 +47,7 @@ extension SceneDelegate {
         case .EventViewController:
             return makeEventViewController()
         case .HomeViewController:
-            return HomeViewController()
+            return HomeViewController.create()
         }
     }
     
@@ -59,11 +62,5 @@ extension SceneDelegate {
             }
         }
         return eventViewController
-    }
-    
-    private func makeHomeViewController() -> UIViewController{
-        let navigationController = UINavigationController()
-        let tabBarController = UITabBarController()
-        return navigationController
     }
 }

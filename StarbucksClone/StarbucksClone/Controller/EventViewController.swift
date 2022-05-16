@@ -29,12 +29,6 @@ extension EventViewController: EventViewAction {
         if input == .neverSeeAgainButtonTapped {
             usecase.saveNeverSeeAgainRequest()
         }
-        self.presentNextViewController()
-    }
-
-    private func presentNextViewController() {
-        let nextViewController = HomeViewController()
-        nextViewController.modalPresentationStyle = .fullScreen
-        present(nextViewController, animated: true, completion: nil)
+        present(HomeViewController.create(), animated: true, completion: nil)
     }
 }

@@ -36,9 +36,7 @@ extension LoginViewController: LoginUseCaseDelegate {
         case .EventViewController:
             presentEventViewController()
         case .HomeViewController:
-            let homeViewController =  HomeViewController() // HomeViewController 구현 후 변경
-            homeViewController.modalPresentationStyle = .fullScreen
-            present(homeViewController, animated: true, completion: nil)
+            present(HomeViewController.create(), animated: true, completion: nil)
         default:
             return
         }
