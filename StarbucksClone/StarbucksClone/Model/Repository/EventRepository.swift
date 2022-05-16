@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol eventDataGettable {
+protocol EventDataGettable {
     func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void)
 }
 

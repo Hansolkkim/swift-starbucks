@@ -13,7 +13,9 @@ protocol KakaoLoginable{
     func getUserNickname(completion: @escaping (Result<String, KakaoLoginError>) -> ())
 }
 
-struct KakaoLogin: KakaoLoginable {
+struct KakaoLogin {
+}
+extension KakaoLogin: KakaoLoginable {
     func loginRequest(completion: @escaping (Result<String, KakaoLoginError>) -> ()) {
         let loginApiCompletion: (OAuthToken?, Error?) -> () = { (oauthToken, error) in
             DispatchQueue.global().async {

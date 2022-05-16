@@ -12,15 +12,21 @@ protocol SceneManagable{
     func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void)
 }
 
-final class SceneUseCase: SceneManagable {
-    private let userDefaultManager = UserDefaultManager()
+final class SceneUseCase {
+    private let userDefaultManagable: SceneUserDefaultManagable
     private let eventRepository = EventRepository()
     
+    init(userDefaultManagable: SceneUserDefaultManagable) {
+        self.userDefaultManagable = userDefaultManagable
+    }
+}
+
+extension SceneUseCase: SceneManagable {
     func selectRootViewController() -> ViewControllerType {
-        guard userDefaultManager.getStringFromUserDefault(by: .userLoginToken) != nil else {
+        guard userDefaultManagable.getStringFromUserDefault(by: .userLoginToken) != nil else {
             return .LoginViewController
         }
-        guard userDefaultManager.getBooleanFromUserDefault() else {
+        guard userDefaultManagable.getBooleanFromUserDefault() else {
             return .EventViewController
         }
         return .HomeViewController

@@ -11,13 +11,13 @@ import KakaoSDKUser
 class LoginViewController: UIViewController {
     
     private lazy var loginView = LoginView(frame: view.frame)
-    private let usecase = LoginUseCase()
+    private var usecase: LoginManagable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view = loginView
         loginView.action = self
-        usecase.delegate = self
+        usecase?.setDelegate(delegate: self)
     }
 }
 
@@ -25,7 +25,7 @@ extension LoginViewController: LoginViewAction {
     func userDidInput(_ input: LoginView.UserAction) {
         switch input {
         case .buttonTapped:
-            usecase.kakaoLoginRequest()
+            usecase?.kakaoLoginRequest()
         }
     }
 }
@@ -43,7 +43,7 @@ extension LoginViewController: LoginUseCaseDelegate {
     }
     
     private func presentEventViewController(){
-        usecase.getEventData { result in
+        usecase?.getEventData { result in
             switch result{
             case .success(let starbuckst):
                 DispatchQueue.main.async { [weak self] in

@@ -7,23 +7,27 @@
 
 import Foundation
 
-protocol Loginable {
+protocol Loginable { // scene에서 사용될 기능.
     func getStringFromUserDefault(by keyType: UserDefaultManager.KeyType) -> String?
 }
 
-protocol LoginDataSavable {
+protocol LoginDataSavable { // 로그인 화면에서 사용될 기능.
     func saveLoginToken(_ tokenData: UserData)
 }
 
-protocol EventNeverSeeable {
+protocol EventUserDefaultGettable { // 이벤트 화면에서 사용될 기능.
     func getBooleanFromUserDefault() -> Bool
 }
 
-protocol EventNeverSeeDataSavable {
+protocol EventNeverSeeDataSavable { // scene, login에서 사용할 기능.
     func saveEventNeverSeeAgain()
 }
 
-struct UserDefaultManager {
+protocol SceneUserDefaultManagable: Loginable, EventUserDefaultGettable {}
+
+protocol LoginUserDefaultManagable: LoginDataSavable, EventUserDefaultGettable {}
+
+struct UserDefaultManager: SceneUserDefaultManagable, LoginUserDefaultManagable {
     private let userDefault = UserDefaults.standard
 }
 
@@ -39,7 +43,7 @@ extension UserDefaultManager: LoginDataSavable {
     }
 }
 
-extension UserDefaultManager: EventNeverSeeable {
+extension UserDefaultManager: EventUserDefaultGettable {
     func getBooleanFromUserDefault() -> Bool {
         return userDefault.bool(forKey: KeyType.eventNeverSeeAgain.key)
     }

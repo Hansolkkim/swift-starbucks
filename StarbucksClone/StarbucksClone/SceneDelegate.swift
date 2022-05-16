@@ -10,14 +10,15 @@ import KakaoSDKCommon
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let appKey = "9d618f74a6d63d44fe745da0f480233f"
-    private let sceneUseCase = SceneUseCase()
+    private var sceneManagable: SceneManagable?
+    //private let sceneUseCase = SceneUseCase(userDefaultManagable: UserDefaultManager())
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         KakaoSDK.initSDK(appKey: appKey)
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let selectedViewControllerType = sceneUseCase.selectRootViewController()
+            guard let selectedViewControllerType = sceneManagable?.selectRootViewController() else { return }
             window.rootViewController = makeSelectedViewController(by: selectedViewControllerType)
             self.window = window
             window.makeKeyAndVisible()
@@ -49,7 +50,7 @@ extension SceneDelegate {
     
     private func makeEventViewController() -> UIViewController{
         let eventViewController = EventViewController()
-        sceneUseCase.getEventData { result in
+        sceneManagable?.getEventData { result in
             switch result{
             case .success(let starbuckst):
                 eventViewController.setEventDTO(starbuckstDTO: starbuckst)
