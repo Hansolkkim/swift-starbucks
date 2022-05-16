@@ -14,10 +14,11 @@ protocol SceneManagable{
 
 final class SceneUseCase {
     private let userDefaultManagable: SceneUserDefaultManagable
-    private let eventRepository = EventRepository()
+    private let eventDataGettable: EventDataGettable
     
-    init(userDefaultManagable: SceneUserDefaultManagable) {
+    init(userDefaultManagable: SceneUserDefaultManagable, eventDataGettable: EventDataGettable) {
         self.userDefaultManagable = userDefaultManagable
+        self.eventDataGettable = eventDataGettable
     }
 }
 
@@ -33,7 +34,7 @@ extension SceneUseCase: SceneManagable {
     }
     
     func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void) {
-        eventRepository.getEventData(completion: { result in
+        eventDataGettable.getEventData(completion: { result in
             completion(result)
         })
     }

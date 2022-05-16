@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		022DF8AF282E1F4E0022A954 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022DF8AE282E1F4E0022A954 /* HomeViewController.swift */; };
 		0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0274E8E4282A010E0074C3E8 /* LoginView.swift */; };
+		02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60142832449500AE9C00 /* LoginDependency.swift */; };
+		02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60162832489A00AE9C00 /* EventDependency.swift */; };
 		02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2DC282B8589005834D6 /* UserDefaultManager.swift */; };
 		02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2DE282B8C3C005834D6 /* UserData.swift */; };
 		02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		022DF8AE282E1F4E0022A954 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0274E8E4282A010E0074C3E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		02DA60142832449500AE9C00 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
+		02DA60162832489A00AE9C00 /* EventDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDependency.swift; sourceTree = "<group>"; };
 		02DFA2DC282B8589005834D6 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		02DFA2DE282B8C3C005834D6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneUseCase.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 			children = (
 				72888EDD28323F4A005C032D /* DependencyInjector.swift */,
 				72888EDF2832404C005C032D /* SceneDependency.swift */,
+				02DA60142832449500AE9C00 /* LoginDependency.swift */,
+				02DA60162832489A00AE9C00 /* EventDependency.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -546,6 +552,8 @@
 				7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */,
 				02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */,
 				02DFA2F5282CA209005834D6 /* EventRepository.swift in Sources */,
+				02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */,
+				02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */,
 				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,

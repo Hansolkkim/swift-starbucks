@@ -11,7 +11,17 @@ final class DependencyInjector {
     static func injecting<T: DependencySetable>(to compose: T){
         if compose is SceneDelegate {
             guard let sceneDelegate = compose as? SceneDelegate else { return }
-            sceneDelegate.setDependency(dependency: SceneDependency(manager: SceneUseCase(userDefaultManagable: UserDefaultManager())))
+            sceneDelegate.setDependency(dependency: SceneDependency(manager: SceneUseCase(userDefaultManagable: UserDefaultManager(), eventDataGettable: EventRepository(eventService: EventService()))))
+        }
+
+        else if compose is LoginViewController {
+            guard let loginViewController = compose as? LoginViewController else { return }
+            loginViewController.setDependency(dependency: LoginDependency(manager: LoginUseCase(kakaoLoginable: KakaoLogin(), userDefaultManagable: UserDefaultManager(), eventDataGettable: EventRepository(eventService: EventService()))))
+        }
+
+        else if compose is EventViewController {
+            guard let eventViewController = compose as? EventViewController else { return }
+            eventViewController.setDependency(dependency: EventDependency(manager: EventUseCase(userDefaultManagable: UserDefaultManager())))
         }
     }
 }

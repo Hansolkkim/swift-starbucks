@@ -7,30 +7,48 @@
 
 import UIKit
 
-class EventViewController: UIViewController {
-
+class EventViewController: UIViewController, DependencySetable {
+    typealias DependencyType = EventDependency
+    var dependency: DependencyType? {
+        didSet{
+            self.eventManagable = dependency?.manager
+        }
+    }
     private lazy var eventView = EventView(frame: view.frame)
-    private var usecase: EventManagable?
+    private var eventManagable: EventManagable?
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view = eventView
         eventView.action = self
 
-        if let title = usecase?.starbuckstDTO?.title {
+        if let title = eventManagable?.starbuckstDTO?.title {
             eventView.setTitleLabel(title: title)
         }
     }
+
+    func setDependency(dependency: DependencyType) {
+        self.dependency = dependency
+    }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
-        usecase?.setEventDTO(starbuckstDTO: starbuckstDTO)
+        eventManagable?.setEventDTO(starbuckstDTO: starbuckstDTO)
     }
 }
 
 extension EventViewController: EventViewAction {
     func userDidInput(_ input: EventView.UserAction) {
         if input == .neverSeeAgainButtonTapped {
-            usecase?.saveNeverSeeAgainRequest()
+            eventManagable?.saveNeverSeeAgainRequest()
         }
         present(HomeViewController.create(), animated: true, completion: nil)
     }
