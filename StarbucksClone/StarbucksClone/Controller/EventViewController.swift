@@ -16,7 +16,10 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
         view = eventView
         eventView.action = self
-        eventView.setTitleLabel(title: usecase.starbuckstDTO?.title ?? "nil")
+
+        if let title = usecase?.starbuckstDTO?.title {
+            eventView.setTitleLabel(title: title)
+        }
     }
     
     func setEventDTO(starbuckstDTO: StarbuckstDTO){
