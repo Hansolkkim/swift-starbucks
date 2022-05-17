@@ -10,17 +10,21 @@ import XCTest
 
 class StarbucksCloneTests: XCTestCase {
 
-    func testSceneUserDefault() throws {
-        let userDefault: SceneUserDefaultManagable = UserDefaultManager()
+    func testFetchEvent() throws {
+        let promise = self.expectation(description: "repositoryFetch")
+        let eventRepository: EventDataFetchable = EventRepositoryStub(testResult: true)
+        eventRepository.fetchData(of: .starbuckstLoading) { result in
+            switch result{
+            case .success(_):
+                XCTAssertTrue(true)
+            case .failure(_):
+                XCTAssertTrue(false)
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testLoginUserDefault() throws {
-        let userDefault: LoginUserDefaultManagable = UserDefaultManager()
-    }
-    
-    func testEventDataFetch() throws{
-        let service: EventDataFetchable = EventService()
-    }
     
     func testKakaoLogin() throws {
         let kakaoLogin: KakaoLoginable = KakaoLogin()

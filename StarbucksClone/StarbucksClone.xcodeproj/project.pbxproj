@@ -36,6 +36,7 @@
 		726656292829039600FCE427 /* StarbucksCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656282829039600FCE427 /* StarbucksCloneUITestsLaunchTests.swift */; };
 		72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888EDD28323F4A005C032D /* DependencyInjector.swift */; };
 		72888EE02832404C005C032D /* SceneDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888EDF2832404C005C032D /* SceneDependency.swift */; };
+		72FD49B528336C1700E5322A /* EventRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FD49B428336C1700E5322A /* EventRepositoryStub.swift */; };
 		88CE0531D12E07ADD02E8395 /* Pods_StarbucksClone_StarbucksCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */; };
 		E6066FF0B88424816200329F /* Pods_StarbucksClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871A3EB602F35A0D93F8F62 /* Pods_StarbucksClone.framework */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		726656282829039600FCE427 /* StarbucksCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		72888EDD28323F4A005C032D /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		72888EDF2832404C005C032D /* SceneDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDependency.swift; sourceTree = "<group>"; };
+		72FD49B428336C1700E5322A /* EventRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepositoryStub.swift; sourceTree = "<group>"; };
 		8871A3EB602F35A0D93F8F62 /* Pods_StarbucksClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98582D50427383EA793B2D81 /* Pods-StarbucksClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarbucksClone.debug.xcconfig"; path = "Target Support Files/Pods-StarbucksClone/Pods-StarbucksClone.debug.xcconfig"; sourceTree = "<group>"; };
 		9B0F3E2DDD226EEFB72B4E7A /* Pods-StarbucksCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarbucksCloneTests.debug.xcconfig"; path = "Target Support Files/Pods-StarbucksCloneTests/Pods-StarbucksCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		7266561B2829039600FCE427 /* StarbucksCloneTests */ = {
 			isa = PBXGroup;
 			children = (
+				72FD49B12833694500E5322A /* Mock */,
 				7266561C2829039600FCE427 /* StarbucksCloneTests.swift */,
 			);
 			path = StarbucksCloneTests;
@@ -279,6 +282,14 @@
 				02DA60162832489A00AE9C00 /* EventDependency.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		72FD49B12833694500E5322A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				72FD49B428336C1700E5322A /* EventRepositoryStub.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		81BD1E1C10FE4DA8E46CD2F5 /* Frameworks */ = {
@@ -572,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72FD49B528336C1700E5322A /* EventRepositoryStub.swift in Sources */,
 				7266561D2829039600FCE427 /* StarbucksCloneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
