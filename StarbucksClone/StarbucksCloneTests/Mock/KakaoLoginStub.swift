@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import StarbucksClone
 
 struct KakaoLoginStub: KakaoLoginable {
     private var isSuccess: Bool
