@@ -23,11 +23,11 @@ protocol EventNeverSeeDataSavable { // scene, login에서 사용할 기능.
     func saveEventNeverSeeAgain()
 }
 
-protocol SceneUserDefaultManagable: Loginable, EventUserDefaultGettable {}
+typealias SceneUserDefaultManagable = Loginable & EventUserDefaultGettable
 
-protocol LoginUserDefaultManagable: LoginDataSavable, EventUserDefaultGettable {}
+typealias LoginUserDefaultManagable = LoginDataSavable & EventUserDefaultGettable
 
-struct UserDefaultManager: SceneUserDefaultManagable, LoginUserDefaultManagable {
+struct UserDefaultManager {
     private let userDefault = UserDefaults.standard
 }
 
