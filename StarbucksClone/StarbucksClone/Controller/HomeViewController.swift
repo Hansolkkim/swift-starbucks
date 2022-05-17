@@ -11,14 +11,16 @@ final class HomeViewController: UIViewController {
     
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = RecommendCollectionDataSource()
+    private var homeManagable: HomeManagable? = HomeUseCase(homeComponentsDataGettable: HomeRepository(homeService: HomeService()))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view = homeView
         setNavigationCustomTitle()
         homeView.setRecommendCollectionDatasource(dataSource: dataSource)
-        
-        
+        homeManagable?.getHomeComponentsData(completion: {result in
+            print(result)
+        })
     }
     
     private func setNavigationCustomTitle(){

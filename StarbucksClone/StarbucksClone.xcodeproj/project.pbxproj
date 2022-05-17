@@ -22,6 +22,13 @@
 		02DFA2F5282CA209005834D6 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F4282CA209005834D6 /* EventRepository.swift */; };
 		02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F8282CA50A005834D6 /* EventService.swift */; };
 		02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */; };
+		02E32FD82834041A0045A371 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FD72834041A0045A371 /* HomeUseCase.swift */; };
+		02E32FDA2834044E0045A371 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FD92834044E0045A371 /* HomeAPI.swift */; };
+		02E32FDC283404760045A371 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FDB283404760045A371 /* HomeService.swift */; };
+		02E32FDE2834048B0045A371 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FDD2834048B0045A371 /* HomeRepository.swift */; };
+		02E32FE0283404A30045A371 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FDF283404A30045A371 /* HomeComponents.swift */; };
+		02E32FE2283404B50045A371 /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE1283404B50045A371 /* ProductDTO.swift */; };
+		02E32FE4283404C10045A371 /* HomeComponentsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
 		7202D2D82833742F00683403 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2D72833742F00683403 /* HomeView.swift */; };
 		7202D2DA2833759500683403 /* WhatsNewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2D92833759500683403 /* WhatsNewTitleView.swift */; };
@@ -81,6 +88,13 @@
 		02DFA2F4282CA209005834D6 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		02DFA2F8282CA50A005834D6 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSquadStarbuckstAPI.swift; sourceTree = "<group>"; };
+		02E32FD72834041A0045A371 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		02E32FD92834044E0045A371 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
+		02E32FDB283404760045A371 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		02E32FDD2834048B0045A371 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		02E32FDF283404A30045A371 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
+		02E32FE1283404B50045A371 /* ProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
+		02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponentsDTO.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7202D2D72833742F00683403 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -187,6 +201,7 @@
 				02DFA2E0282B8CA1005834D6 /* SceneUseCase.swift */,
 				724CB066282A3EB4001DD361 /* LoginUseCase.swift */,
 				02DFA2F2282BF9D1005834D6 /* EventUseCase.swift */,
+				02E32FD72834041A0045A371 /* HomeUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -196,6 +211,7 @@
 			children = (
 				02DFA2DE282B8C3C005834D6 /* UserData.swift */,
 				720B05362831ECD1000C630F /* ViewControllerComponents.swift */,
+				02E32FDF283404A30045A371 /* HomeComponents.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -213,6 +229,8 @@
 			children = (
 				02DFA2F8282CA50A005834D6 /* EventService.swift */,
 				02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */,
+				02E32FDB283404760045A371 /* HomeService.swift */,
+				02E32FD92834044E0045A371 /* HomeAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -221,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				02DFA2F4282CA209005834D6 /* EventRepository.swift */,
+				02E32FDD2834048B0045A371 /* HomeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -230,6 +249,8 @@
 			children = (
 				7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */,
 				7202D2E028338A9900683403 /* RecommendDTO.swift */,
+				02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */,
+				02E32FE1283404B50045A371 /* ProductDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -588,9 +609,12 @@
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */,
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
+				02E32FDC283404760045A371 /* HomeService.swift in Sources */,
 				02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */,
+				02E32FE4283404C10045A371 /* HomeComponentsDTO.swift in Sources */,
 				02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */,
 				022DF8AF282E1F4E0022A954 /* HomeViewController.swift in Sources */,
+				02E32FDE2834048B0045A371 /* HomeRepository.swift in Sources */,
 				7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */,
 				02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */,
 				02DFA2F5282CA209005834D6 /* EventRepository.swift in Sources */,
@@ -598,19 +622,23 @@
 				02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */,
+				02E32FE0283404A30045A371 /* HomeComponents.swift in Sources */,
 				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,
 				7202D2E328338B1900683403 /* RecommentCollectionCell.swift in Sources */,
+				02E32FDA2834044E0045A371 /* HomeAPI.swift in Sources */,
 				7202D2DD283386B700683403 /* RecommendCollectionDelegate.swift in Sources */,
 				720B05372831ECD1000C630F /* ViewControllerComponents.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
 				02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */,
 				7202D2DF2833890600683403 /* RecommendCollectionDataSource.swift in Sources */,
 				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,
+				02E32FD82834041A0045A371 /* HomeUseCase.swift in Sources */,
 				72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */,
 				02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */,
 				7202D2D82833742F00683403 /* HomeView.swift in Sources */,
 				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
 				02DFA2E8282BA605005834D6 /* EventView.swift in Sources */,
+				02E32FE2283404B50045A371 /* ProductDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
