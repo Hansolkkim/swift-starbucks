@@ -10,18 +10,27 @@ import KakaoSDKCommon
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let appKey = "9d618f74a6d63d44fe745da0f480233f"
-    private let sceneUseCase = SceneUseCase()
-    //private lazy var viewControllers = [HomeViewController(), PayViewController(), OrderViewController(), FavoriteViewController()]
-    private lazy var viewControllers = [HomeViewController(), HomeViewController(), HomeViewController(), HomeViewController()]
-    private let viewControllerNames = ["Home", "Pay", "Order", "Favorite"]
+    typealias DependencyType = SceneDependency
+    var dependency: DependencyType? {
+        didSet{
+            self.sceneManagable = dependency?.manager
+        }
+    }
+    
+    private var sceneManagable: SceneManagable?
+    //private let sceneUseCase = SceneUseCase(userDefaultManagable: UserDefaultManager())
     var window: UIWindow?
 
+    override init(){
+        super.init()
+        DependencyInjector.injecting(to: self)
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         KakaoSDK.initSDK(appKey: appKey)
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let selectedViewControllerType = sceneUseCase.selectRootViewController()
-           // window.rootViewController = LoginViewController()
+            guard let selectedViewControllerType = sceneManagable?.selectRootViewController() else { return }
             window.rootViewController = makeSelectedViewController(by: selectedViewControllerType)
             self.window = window
             window.makeKeyAndVisible()
@@ -36,6 +45,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if AuthApi.isKakaoTalkLoginUrl(url) {
             _ = AuthController.handleOpenUrl(url: url)
         }
+    }
+}
+extension SceneDelegate: DependencySetable {
+    func setDependency(dependency: SceneDependency) {
+        self.dependency = dependency
     }
 }
 
@@ -53,7 +67,7 @@ extension SceneDelegate {
     
     private func makeEventViewController() -> UIViewController{
         let eventViewController = EventViewController()
-        sceneUseCase.getEventData { result in
+        sceneManagable?.getEventData { result in
             switch result{
             case .success(let starbuckst):
                 eventViewController.setEventDTO(starbuckstDTO: starbuckst)

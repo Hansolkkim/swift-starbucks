@@ -7,22 +7,34 @@
 
 import Foundation
 
-class SceneUseCase {
-    private let userDefaultManager = UserDefaultManager()
-    private let eventRepository = EventRepository()
+protocol SceneManagable{
+    func selectRootViewController() -> ViewControllerType
+    func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void)
+}
+
+final class SceneUseCase {
+    private let userDefaultManagable: SceneUserDefaultManagable
+    private let eventDataGettable: EventDataGettable
     
+    init(userDefaultManagable: SceneUserDefaultManagable, eventDataGettable: EventDataGettable) {
+        self.userDefaultManagable = userDefaultManagable
+        self.eventDataGettable = eventDataGettable
+    }
+}
+
+extension SceneUseCase: SceneManagable {
     func selectRootViewController() -> ViewControllerType {
-        guard userDefaultManager.getStringFromUserDefault(by: .userLoginToken) != nil else {
+        guard userDefaultManagable.getStringFromUserDefault(by: .userLoginToken) != nil else {
             return .LoginViewController
         }
-        guard userDefaultManager.getBooleanFromUserDefault() else {
+        guard userDefaultManagable.getBooleanFromUserDefault() else {
             return .EventViewController
         }
         return .HomeViewController
     }
     
     func getEventData(completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void) {
-        eventRepository.getEventData(completion: { result in
+        eventDataGettable.getEventData(completion: { result in
             completion(result)
         })
     }

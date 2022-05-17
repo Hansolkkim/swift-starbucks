@@ -8,16 +8,35 @@
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController, DependencySetable {
+    typealias DependencyType = LoginDependency
+    var dependency: DependencyType? {
+        didSet{
+            self.loginManagable = dependency?.manager
+        }
+    }
     private lazy var loginView = LoginView(frame: view.frame)
-    private let usecase = LoginUseCase()
+    private var loginManagable: LoginManagable?
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        DependencyInjector.injecting(to: self)
+    }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        DependencyInjector.injecting(to: self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view = loginView
         loginView.action = self
-        usecase.delegate = self
+        loginManagable?.setDelegate(delegate: self)
+    }
+    
+    func setDependency(dependency: DependencyType) {
+        self.dependency = dependency
     }
 }
 
@@ -25,7 +44,7 @@ extension LoginViewController: LoginViewAction {
     func userDidInput(_ input: LoginView.UserAction) {
         switch input {
         case .buttonTapped:
-            usecase.kakaoLoginRequest()
+            loginManagable?.kakaoLoginRequest()
         }
     }
 }
@@ -43,7 +62,7 @@ extension LoginViewController: LoginUseCaseDelegate {
     }
     
     private func presentEventViewController(){
-        usecase.getEventData { result in
+        loginManagable?.getEventData { result in
             switch result{
             case .success(let starbuckst):
                 DispatchQueue.main.async { [weak self] in

@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct EventService {
+protocol EventDataFetchable{
+    func fetchData(of kind: CodeSquadStarbuckst, completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void)
+}
+
+struct EventService: EventDataFetchable {
     private let urlSession = URLSession.shared
 
     func fetchData(of kind: CodeSquadStarbuckst, completion: @escaping (Result<StarbuckstDTO, NetworkError>) -> Void) {

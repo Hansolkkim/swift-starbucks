@@ -8,8 +8,15 @@
 import KakaoSDKAuth
 import KakaoSDKUser
 
+protocol KakaoLoginable{
+    func loginRequest(completion: @escaping (Result<String, KakaoLoginError>) -> ())
+    func getUserNickname(completion: @escaping (Result<String, KakaoLoginError>) -> ())
+}
+
 struct KakaoLogin {
-    func loginRequest(completion: @escaping (Result<String, KakaoLoginError>) -> ()){
+}
+extension KakaoLogin: KakaoLoginable {
+    func loginRequest(completion: @escaping (Result<String, KakaoLoginError>) -> ()) {
         let loginApiCompletion: (OAuthToken?, Error?) -> () = { (oauthToken, error) in
             DispatchQueue.global().async {
                 guard let accessToken = oauthToken?.accessToken else {
