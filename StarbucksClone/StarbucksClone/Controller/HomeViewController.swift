@@ -7,14 +7,30 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
+    
+    private lazy var homeView = HomeView(frame: view.frame)
+    private let dataSource = RecommendCollectionDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = UIView(frame: view.bounds)
-        self.view.backgroundColor = .white
+        view = homeView
+        setNavigationCustomTitle()
+        homeView.setRecommendCollectionDatasource(dataSource: dataSource)
+        
+        
     }
     
+    private func setNavigationCustomTitle(){
+        guard let navigationBarFrame = navigationController?.navigationBar.frame else { return }
+        let titleView = WhatsNewTitleView(frame: navigationBarFrame)
+        self.navigationController?.navigationBar.addSubview(titleView)
+        self.navigationController?.navigationBar.barTintColor = .white
+    }
+    
+}
+
+extension HomeViewController {
     static func create() -> UINavigationController {
         let home = ViewControllerComponents(viewController: HomeViewController(), title: "Home", icon: UIImage(systemName: "house") ?? UIImage())
         let pay = ViewControllerComponents(viewController: HomeViewController(), title: "Pay", icon: UIImage(systemName: "creditcard") ?? UIImage())

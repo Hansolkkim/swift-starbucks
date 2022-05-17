@@ -23,6 +23,12 @@
 		02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2F8282CA50A005834D6 /* EventService.swift */; };
 		02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
+		7202D2D82833742F00683403 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2D72833742F00683403 /* HomeView.swift */; };
+		7202D2DA2833759500683403 /* WhatsNewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2D92833759500683403 /* WhatsNewTitleView.swift */; };
+		7202D2DD283386B700683403 /* RecommendCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2DC283386B700683403 /* RecommendCollectionDelegate.swift */; };
+		7202D2DF2833890600683403 /* RecommendCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2DE2833890600683403 /* RecommendCollectionDataSource.swift */; };
+		7202D2E128338A9900683403 /* RecommendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2E028338A9900683403 /* RecommendDTO.swift */; };
+		7202D2E328338B1900683403 /* RecommentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2E228338B1900683403 /* RecommentCollectionCell.swift */; };
 		720B05372831ECD1000C630F /* ViewControllerComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B05362831ECD1000C630F /* ViewControllerComponents.swift */; };
 		7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */; };
 		724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CB066282A3EB4001DD361 /* LoginUseCase.swift */; };
@@ -77,6 +83,12 @@
 		02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSquadStarbuckstAPI.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7202D2D72833742F00683403 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7202D2D92833759500683403 /* WhatsNewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTitleView.swift; sourceTree = "<group>"; };
+		7202D2DC283386B700683403 /* RecommendCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionDelegate.swift; sourceTree = "<group>"; };
+		7202D2DE2833890600683403 /* RecommendCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionDataSource.swift; sourceTree = "<group>"; };
+		7202D2E028338A9900683403 /* RecommendDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendDTO.swift; path = StarbucksClone/View/CollectionDelegate/RecommendDTO.swift; sourceTree = SOURCE_ROOT; };
+		7202D2E228338B1900683403 /* RecommentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentCollectionCell.swift; sourceTree = "<group>"; };
 		720B05362831ECD1000C630F /* ViewControllerComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerComponents.swift; sourceTree = "<group>"; };
 		7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarbuckstDTO.swift; path = StarbucksClone/Model/StarbuckstDTO.swift; sourceTree = SOURCE_ROOT; };
 		724CB066282A3EB4001DD361 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
@@ -136,8 +148,11 @@
 		02DFA2E2282B9319005834D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7202D2DB2833855900683403 /* CollectionDelegate */,
 				0274E8E4282A010E0074C3E8 /* LoginView.swift */,
 				02DFA2E7282BA605005834D6 /* EventView.swift */,
+				7202D2D72833742F00683403 /* HomeView.swift */,
+				7202D2D92833759500683403 /* WhatsNewTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,8 +229,19 @@
 			isa = PBXGroup;
 			children = (
 				7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */,
+				7202D2E028338A9900683403 /* RecommendDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		7202D2DB2833855900683403 /* CollectionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7202D2DC283386B700683403 /* RecommendCollectionDelegate.swift */,
+				7202D2DE2833890600683403 /* RecommendCollectionDataSource.swift */,
+				7202D2E228338B1900683403 /* RecommentCollectionCell.swift */,
+			);
+			path = CollectionDelegate;
 			sourceTree = "<group>";
 		};
 		726655F92829039400FCE427 = {
@@ -556,7 +582,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7202D2DA2833759500683403 /* WhatsNewTitleView.swift in Sources */,
 				72888EE02832404C005C032D /* SceneDependency.swift in Sources */,
+				7202D2E128338A9900683403 /* RecommendDTO.swift in Sources */,
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */,
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
@@ -571,12 +599,16 @@
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */,
 				0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */,
+				7202D2E328338B1900683403 /* RecommentCollectionCell.swift in Sources */,
+				7202D2DD283386B700683403 /* RecommendCollectionDelegate.swift in Sources */,
 				720B05372831ECD1000C630F /* ViewControllerComponents.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
 				02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */,
+				7202D2DF2833890600683403 /* RecommendCollectionDataSource.swift in Sources */,
 				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,
 				72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */,
 				02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */,
+				7202D2D82833742F00683403 /* HomeView.swift in Sources */,
 				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
 				02DFA2E8282BA605005834D6 /* EventView.swift in Sources */,
 			);
