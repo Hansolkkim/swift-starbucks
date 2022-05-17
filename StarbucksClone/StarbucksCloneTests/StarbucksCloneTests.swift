@@ -27,6 +27,31 @@ class StarbucksCloneTests: XCTestCase {
     
     
     func testKakaoLogin() throws {
-        let kakaoLogin: KakaoLoginable = KakaoLogin()
+        let kakaoLogin: KakaoLoginable = KakaoLoginStub(isSuccess: true)
+
+        let promise1 = expectation(description: "Login Success")
+        let promise2 = expectation(description: "Nickname is came")
+
+        kakaoLogin.loginRequest { result in
+            switch result {
+            case .success(let string):
+                XCTAssertEqual(string, "Login Success")
+            case .failure(let error):
+                XCTAssertEqual(error, .nilUserError)
+            }
+            promise1.fulfill()
+        }
+
+        kakaoLogin.getUserNickname { result in
+            switch result {
+            case .success(let string):
+                XCTAssertEqual(string, "Nickname is came")
+            case .failure(let error):
+                XCTAssertEqual(error, .nilNicknameError)
+            }
+            promise2.fulfill()
+        }
+
+        wait(for: [promise1, promise2], timeout: 5)
     }
 }
