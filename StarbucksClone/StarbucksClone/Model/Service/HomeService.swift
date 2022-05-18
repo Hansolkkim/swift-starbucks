@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomeComponentsDataFetchable {
     func fetchData(of kind: HomeAPI, completion: @escaping (Result<HomeComponentsDTO, NetworkError>) -> Void)
-    func fetchData(of kind: HomeAPI, completion: @escaping (Result<[String: [String]], NetworkError>) -> Void)
+    func fetchData(of kind: HomeAPI, completion: @escaping (Result<(BeverageImageDTO?, BeverageInfoDTO?), NetworkError>) -> Void)
 }
 
 struct HomeService: HomeComponentsDataFetchable {
@@ -45,7 +45,7 @@ struct HomeService: HomeComponentsDataFetchable {
         }.resume()
     }
     
-    func fetchData(of kind: HomeAPI, completion: @escaping (Result<[String: [String]], NetworkError>) -> Void) {
+    func fetchData(of kind: HomeAPI, completion: @escaping (Result<(BeverageImageDTO?, BeverageInfoDTO?), NetworkError>) -> Void) {
         guard let request = makeRequest(of: kind) else {return}
         urlSession.dataTask(with: request) { (data, response, error) in
             if error != nil {
@@ -66,11 +66,13 @@ struct HomeService: HomeComponentsDataFetchable {
                 return completion(.failure(.serverError(statusCode: statusCode)))
             }
 
-            guard let decodedData = try? JSONDecoder().decode([String: [String]].self, from: data) else {
+            if let decodedImageData = try? JSONDecoder().decode(BeverageImageDTO.self, from: data) {
+                return completion(.success((decodedImageData, nil)))
+            } else if let decodedInfoData = try? JSONDecoder().decode(BeverageInfoDTO.self, from: data) {
+                return completion(.success((nil, decodedInfoData)))
+            } else {
                 return completion(.failure(.unDecodedError))
             }
-
-            completion(.success(decodedData))
         }.resume()
     }
     

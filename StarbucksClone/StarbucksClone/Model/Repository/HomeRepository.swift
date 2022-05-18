@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomeComponentsGettable {
     func getHomeComponentsData(completion: @escaping (Result<HomeComponentsDTO, NetworkError>) -> Void)
-    func getHomeBeveragesData(productCD: String, completion: @escaping (Result<[String: [String]], NetworkError>) -> Void)
+    func getHomeBeveragesData(productCD: String, completion: @escaping (Result<(BeverageImageDTO?, BeverageInfoDTO?), NetworkError>) -> Void)
 }
 
 struct HomeRepository: HomeComponentsGettable {
@@ -25,7 +25,7 @@ struct HomeRepository: HomeComponentsGettable {
         }
     }
 
-    func getHomeBeveragesData(productCD: String, completion: @escaping (Result<[String: [String]], NetworkError>) -> Void) {
+    func getHomeBeveragesData(productCD: String, completion: @escaping (Result<(BeverageImageDTO?, BeverageInfoDTO?), NetworkError>) -> Void) {
         homeService.fetchData(of: .fetchBeverageImages(productCD)) { result in
             completion(result)
         }
