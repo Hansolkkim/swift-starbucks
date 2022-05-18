@@ -13,7 +13,6 @@ final class HomeView: UIView {
     
     private let nicknameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Solbony님을 위한 추천 메뉴"
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.boldSystemFont(ofSize: 24)
@@ -26,8 +25,6 @@ final class HomeView: UIView {
         layout.itemSize = CGSize(width: 130, height: 160)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(RecommentCollectionCell.self, forCellWithReuseIdentifier: RecommentCollectionCell.cellIdentifier)
-        let delegate = RecommendCollectionDelegate()
-        collectionView.delegate = delegate
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
@@ -36,6 +33,17 @@ final class HomeView: UIView {
         let imageView = UIImageView()
         
         return imageView
+    }()
+    
+    
+    var popularMenuCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 130, height: 160)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(RecommentCollectionCell.self, forCellWithReuseIdentifier: RecommentCollectionCell.cellIdentifier)
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
     }()
     
     override init(frame: CGRect){
@@ -98,7 +106,6 @@ extension HomeView {
     }
     
     func updateImageView(data: Data){
-    
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard let eventImage = UIImage(data: data) else { return }
@@ -115,6 +122,6 @@ extension HomeView {
                 make.trailing.equalTo(self.snp.trailing).offset(-10)
             }
         }
-        
     }
+    
 }

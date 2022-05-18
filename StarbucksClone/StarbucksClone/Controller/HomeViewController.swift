@@ -32,7 +32,8 @@ final class HomeViewController: UIViewController {
     private func setRecommendCollectionData(product: ProductDescription){
         dataSource.recommends.append(product)
         DispatchQueue.main.async { [weak self] in
-            self?.homeView.recommandCollectionView.reloadData()
+            guard let self = self else { return }
+            self.homeView.recommandCollectionView.insertItems(at: [IndexPath(item: self.dataSource.recommends.count - 1, section: 0)])
         }
     }
 }
