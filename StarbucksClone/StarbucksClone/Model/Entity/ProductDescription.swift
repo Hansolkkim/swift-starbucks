@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProductDescription {
-    var title: String = ""
+    var title: String
 //    var imageData: Data = Data()
-    var imageData: String = ""
+    var imageData: Data
 }

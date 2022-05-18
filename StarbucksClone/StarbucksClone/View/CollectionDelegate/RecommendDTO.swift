@@ -8,6 +8,6 @@
 import Foundation
 
 struct RecommendDTO {
-    let title: String
-    let imageURL: String
+    var title: String
+    var imageURL: String
 }

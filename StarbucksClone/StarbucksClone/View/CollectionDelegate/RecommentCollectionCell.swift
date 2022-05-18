@@ -65,8 +65,8 @@ final class RecommentCollectionCell: UICollectionViewCell {
         }
     }
     
-    func setInfo(by product: ProductDTO){
-        imageView.image = UIImage(named: product.imageData)
+    func setInfo(by product: RecommendDTO){
+        imageView.image = UIImage(named: product.imageURL)
         titleLabel.text = product.title
     }
 }
