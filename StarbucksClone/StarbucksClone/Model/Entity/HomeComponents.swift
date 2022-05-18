@@ -9,8 +9,7 @@ import Foundation
 
 struct HomeComponents {
     let nickName: String
-    let privatelyRecommendedProduct: [String: ProductDTO]
-//    let mainEventImage: Data
+    let privatelyRecommendedProduct: [String]
     let mainEventImage: String
-    let currentRecommendedProduct: [String: ProductDTO]
+    let currentRecommendedProduct: [String]
 }

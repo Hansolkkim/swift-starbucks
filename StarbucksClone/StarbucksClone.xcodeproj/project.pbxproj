@@ -27,8 +27,10 @@
 		02E32FDC283404760045A371 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FDB283404760045A371 /* HomeService.swift */; };
 		02E32FDE2834048B0045A371 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FDD2834048B0045A371 /* HomeRepository.swift */; };
 		02E32FE0283404A30045A371 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FDF283404A30045A371 /* HomeComponents.swift */; };
-		02E32FE2283404B50045A371 /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE1283404B50045A371 /* ProductDTO.swift */; };
+		02E32FE2283404B50045A371 /* ProductDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE1283404B50045A371 /* ProductDescription.swift */; };
 		02E32FE4283404C10045A371 /* HomeComponentsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */; };
+		02E32FE6283484030045A371 /* BeverageImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE5283484030045A371 /* BeverageImageDTO.swift */; };
+		02E32FE82834895F0045A371 /* BeverageInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E32FE72834895F0045A371 /* BeverageInfoDTO.swift */; };
 		6F13C6B0AB22C0E60403A2B4 /* Pods_StarbucksCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */; };
 		7202D2D82833742F00683403 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2D72833742F00683403 /* HomeView.swift */; };
 		7202D2DA2833759500683403 /* WhatsNewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202D2D92833759500683403 /* WhatsNewTitleView.swift */; };
@@ -93,8 +95,10 @@
 		02E32FDB283404760045A371 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		02E32FDD2834048B0045A371 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
 		02E32FDF283404A30045A371 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
-		02E32FE1283404B50045A371 /* ProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
+		02E32FE1283404B50045A371 /* ProductDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescription.swift; sourceTree = "<group>"; };
 		02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponentsDTO.swift; sourceTree = "<group>"; };
+		02E32FE5283484030045A371 /* BeverageImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageImageDTO.swift; sourceTree = "<group>"; };
+		02E32FE72834895F0045A371 /* BeverageInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageInfoDTO.swift; sourceTree = "<group>"; };
 		5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone_StarbucksCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BE3B67ECBD422EE464ED65 /* Pods_StarbucksCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7202D2D72833742F00683403 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				02DFA2DE282B8C3C005834D6 /* UserData.swift */,
 				720B05362831ECD1000C630F /* ViewControllerComponents.swift */,
 				02E32FDF283404A30045A371 /* HomeComponents.swift */,
+				02E32FE1283404B50045A371 /* ProductDescription.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -250,7 +255,8 @@
 				7210186C282CA7CD00D36E1F /* StarbuckstDTO.swift */,
 				7202D2E028338A9900683403 /* RecommendDTO.swift */,
 				02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */,
-				02E32FE1283404B50045A371 /* ProductDTO.swift */,
+				02E32FE5283484030045A371 /* BeverageImageDTO.swift */,
+				02E32FE72834895F0045A371 /* BeverageInfoDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -606,6 +612,8 @@
 				7202D2DA2833759500683403 /* WhatsNewTitleView.swift in Sources */,
 				72888EE02832404C005C032D /* SceneDependency.swift in Sources */,
 				7202D2E128338A9900683403 /* RecommendDTO.swift in Sources */,
+				02E32FE6283484030045A371 /* BeverageImageDTO.swift in Sources */,
+				02E32FE82834895F0045A371 /* BeverageInfoDTO.swift in Sources */,
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */,
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
@@ -638,7 +646,7 @@
 				7202D2D82833742F00683403 /* HomeView.swift in Sources */,
 				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
 				02DFA2E8282BA605005834D6 /* EventView.swift in Sources */,
-				02E32FE2283404B50045A371 /* ProductDTO.swift in Sources */,
+				02E32FE2283404B50045A371 /* ProductDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
