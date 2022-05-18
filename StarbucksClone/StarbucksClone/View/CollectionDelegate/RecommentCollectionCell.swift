@@ -14,9 +14,20 @@ final class RecommentCollectionCell: UICollectionViewCell {
     private lazy var basicView = UIView(frame: self.frame)
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "mail")
+        imageView.image = UIImage(named: "gucci")
+        imageView.contentMode = .scaleToFill
         imageView.tintColor = .black
+        imageView.layer.cornerRadius = 55
+        imageView.layer.masksToBounds = true
         return imageView
+    }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "abcdefu"
+        label.textAlignment = .center
+        label.font.withSize(18)
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -36,5 +47,26 @@ final class RecommentCollectionCell: UICollectionViewCell {
             make.width.height.equalTo(self)
             make.center.equalTo(self.snp.center)
         }
+        
+        basicView.addSubViews(imageView, titleLabel)
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(basicView).offset(5)
+            make.centerX.equalTo(basicView.snp.centerX)
+            make.width.height.equalTo(110)
+            //make.bottom.equalTo(titleLabel.snp.top).offset(-10)
+        }
+        imageView.backgroundColor = .brown
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.leading.equalTo(basicView).offset(10)
+            make.trailing.equalTo(basicView).offset(-10)
+            make.bottom.equalTo(basicView.snp.bottom).offset(-10)
+        }
+    }
+    
+    func setInfo(by product: ProductDTO){
+        imageView.image = UIImage(named: product.imageData)
+        titleLabel.text = product.title
     }
 }

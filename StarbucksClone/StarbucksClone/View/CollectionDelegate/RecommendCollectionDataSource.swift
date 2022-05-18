@@ -8,11 +8,12 @@
 import UIKit
 
 class RecommendCollectionDataSource: NSObject{
-    private(set) var recommends: [RecommendDTO] = []
+    var recommends: [RecommendDTO?]?
+    
 }
 extension RecommendCollectionDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return recommends?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

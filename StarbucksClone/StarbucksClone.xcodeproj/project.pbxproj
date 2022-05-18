@@ -48,6 +48,7 @@
 		7266561D2829039600FCE427 /* StarbucksCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7266561C2829039600FCE427 /* StarbucksCloneTests.swift */; };
 		726656272829039600FCE427 /* StarbucksCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656262829039600FCE427 /* StarbucksCloneUITests.swift */; };
 		726656292829039600FCE427 /* StarbucksCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726656282829039600FCE427 /* StarbucksCloneUITestsLaunchTests.swift */; };
+		727C29B62834893B00E0C69A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727C29B52834893B00E0C69A /* UIView.swift */; };
 		72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888EDD28323F4A005C032D /* DependencyInjector.swift */; };
 		72888EE02832404C005C032D /* SceneDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888EDF2832404C005C032D /* SceneDependency.swift */; };
 		72FD49B528336C1700E5322A /* EventRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FD49B428336C1700E5322A /* EventRepositoryStub.swift */; };
@@ -119,6 +120,7 @@
 		726656222829039600FCE427 /* StarbucksCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarbucksCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		726656262829039600FCE427 /* StarbucksCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCloneUITests.swift; sourceTree = "<group>"; };
 		726656282829039600FCE427 /* StarbucksCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		727C29B52834893B00E0C69A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		72888EDD28323F4A005C032D /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		72888EDF2832404C005C032D /* SceneDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDependency.swift; sourceTree = "<group>"; };
 		72FD49B428336C1700E5322A /* EventRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepositoryStub.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				02DFA2F0282BAD7E005834D6 /* UIColor+.swift */,
+				727C29B52834893B00E0C69A /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				72888EE02832404C005C032D /* SceneDependency.swift in Sources */,
 				7202D2E128338A9900683403 /* RecommendDTO.swift in Sources */,
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
+				727C29B62834893B00E0C69A /* UIView.swift in Sources */,
 				02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */,
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
 				02E32FDC283404760045A371 /* HomeService.swift in Sources */,

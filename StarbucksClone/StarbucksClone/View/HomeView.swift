@@ -6,7 +6,6 @@
 //
 
 import SnapKit
-import UIKit
 
 final class HomeView: UIView {
     
@@ -21,10 +20,10 @@ final class HomeView: UIView {
         return label
     }()
     
-    private var recommandCollectionView: UICollectionView = {
+    var recommandCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 130, height: 150)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(RecommentCollectionCell.self, forCellWithReuseIdentifier: RecommentCollectionCell.cellIdentifier)
         let delegate = RecommendCollectionDelegate()
@@ -54,10 +53,8 @@ final class HomeView: UIView {
         scrollView.contentSize.height = 1000
         scrollView.contentSize.width = self.frame.width
         scrollView.backgroundColor = .white
-        scrollView.addSubview(nicknameLabel)
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        scrollView.addSubview(recommandCollectionView)
+        scrollView.addSubViews(nicknameLabel, recommandCollectionView)
+        
         
         nicknameLabel.backgroundColor = .yellow
         nicknameLabel.snp.makeConstraints { make in
@@ -71,10 +68,9 @@ final class HomeView: UIView {
             make.top.equalTo(nicknameLabel.snp.bottom).offset(10)
             make.leading.equalTo(self.snp.leading).offset(10)
             make.trailing.equalTo(self.snp.trailing).offset(-10)
-            make.height.equalTo(200)
+            make.height.equalTo(160)
         }
         recommandCollectionView.backgroundColor = .blue
-        recommandCollectionView.contentSize.width = 1000
         
         print(recommandCollectionView.description)
     }
@@ -89,4 +85,5 @@ extension HomeView {
     func setRecommendCollectionDatasource(dataSource: UICollectionViewDataSource) {
         self.recommandCollectionView.dataSource = dataSource
     }
+    
 }

@@ -18,6 +18,7 @@ final class HomeViewController: UIViewController {
         view = homeView
         setNavigationCustomTitle()
         homeView.setRecommendCollectionDatasource(dataSource: dataSource)
+        setRecommendCollectionData()
         homeManagable?.getHomeComponentsData(completion: {result in
             print(result)
         })
@@ -30,6 +31,18 @@ final class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .white
     }
     
+    private func setRecommendCollectionData(){
+        var products: [RecommendDTO?] = []
+        for i in 0 ..< 10{
+            let dto = RecommendDTO(title: "gucci \(i)", imageURL: "gucci")
+            products.append(dto)
+        }
+        dataSource.recommends = [RecommendDTO?].init(repeating: nil, count: products.count)
+        dataSource.recommends = products
+        DispatchQueue.main.async { [weak self] in
+            self?.homeView.recommandCollectionView.reloadData()
+        }
+    }
 }
 
 extension HomeViewController {

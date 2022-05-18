@@ -37,8 +37,7 @@ final class WhatsNewTitleView: UIView {
     private func setupUI(){
         backgroundColor = .white
         addSubview(basicView)
-        basicView.addSubview(iconView)
-        basicView.addSubview(titleLabel)
+        basicView.addSubViews(iconView, titleLabel)
         
         iconView.snp.makeConstraints { make in
             make.centerY.equalTo(self)
