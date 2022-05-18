@@ -17,11 +17,9 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         view = homeView
         setNavigationCustomTitle()
+        homeManagable?.setDelegate(delegate: self)
         homeView.setRecommendCollectionDatasource(dataSource: dataSource)
-        setRecommendCollectionData()
-        homeManagable?.getHomeComponentsData(completion: {result in
-            print(result)
-        })
+        homeManagable?.getHomeComponentsData()
     }
     
     private func setNavigationCustomTitle(){
@@ -31,17 +29,29 @@ final class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .white
     }
     
-    private func setRecommendCollectionData(){
-        var products: [RecommendDTO?] = []
-        for i in 0 ..< 10{
-            let dto = RecommendDTO(title: "gucci \(i)", imageURL: "gucci")
-            products.append(dto)
-        }
-        dataSource.recommends = [RecommendDTO?].init(repeating: nil, count: products.count)
-        dataSource.recommends = products
+    private func setRecommendCollectionData(product: ProductDescription){
+        dataSource.recommends.append(product)
         DispatchQueue.main.async { [weak self] in
             self?.homeView.recommandCollectionView.reloadData()
         }
+    }
+}
+
+extension HomeViewController: HomeUseCaseDelegate {
+    func updateUserNickname(_ nickName: String) {
+        homeView.setNickNameLabel(title: nickName)
+    }
+    
+    func updateBeverage(product: ProductDescription) {
+        setRecommendCollectionData(product: product)
+    }
+    
+    func updateHomeComponents(_ components: HomeComponents) {
+        
+    }
+    
+    func updateEventImageData(data: Data) {
+        homeView.updateImageView(data: data)
     }
 }
 

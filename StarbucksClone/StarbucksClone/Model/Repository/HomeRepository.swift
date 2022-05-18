@@ -9,15 +9,11 @@ import Foundation
 
 protocol HomeComponentsGettable {
     func getHomeComponentsData()
-    func getHomeBeveragesData(productCD: String, completion: @escaping (Result<(BeverageImageDTO?, BeverageInfoDTO?), NetworkError>) -> Void)
     mutating func setDelegate(delegate: HomeRepositoryDelegate)
 }
 
 struct HomeRepository: HomeComponentsGettable {
-    func getHomeBeveragesData(productCD: String, completion: @escaping (Result<(BeverageImageDTO?, BeverageInfoDTO?), NetworkError>) -> Void) {
-        
-    }
-    
+
     let homeService: HomeComponentsDataFetchable
     var delegate: HomeRepositoryDelegate?
     
@@ -33,10 +29,21 @@ struct HomeRepository: HomeComponentsGettable {
         homeService.fetchData(of: .fetchHomeComponents) { (result: Result<HomeComponentsDTO, NetworkError>) in
             switch result {
             case .success(let homeDTO):
-                delegate?.updateEventImageURL(url: homeDTO.mainEvent.imageUploadPath + homeDTO.mainEvent.mobThumbNailImagePath)
+                getImage(by: homeDTO.mainEvent.imageUploadPath + homeDTO.mainEvent.mobThumbNailImagePath)
                 getYourRecommandProducts(products: homeDTO.yourRecommand.products)
             case .failure(let error):
                 delegate?.getHomeComponentsDataError(error: error)
+            }
+        }
+    }
+    
+    private func getImage(by url: String){
+        homeService.fetchImage(of: url) { result in
+            switch result {
+            case .success(let data):
+                delegate?.updateEventImage(data: data)
+            case .failure(let error):
+                delegate?.getImageDataError(error: error)
             }
         }
     }
@@ -102,7 +109,8 @@ struct HomeRepository: HomeComponentsGettable {
 }
 
 protocol HomeRepositoryDelegate: AnyObject{
-    func updateEventImageURL(url: String)
+    func updateEventImage(data: Data)
+    func getImageDataError(error: NetworkError)
     func getHomeComponentsDataError(error: NetworkError)
     func getBeverageError(error: NetworkError)
     func updateBeverageData(product: ProductDescription)

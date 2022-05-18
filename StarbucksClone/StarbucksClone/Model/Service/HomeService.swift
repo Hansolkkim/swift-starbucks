@@ -21,7 +21,7 @@ struct HomeService: HomeComponentsDataFetchable {
         }
         urlSession.dataTask(with: url) { data, response, error in
             guard let data = data else {
-                return completion(.failure(.noData))
+                return completion(.failure(.noImageError))
             }
             completion(.success(data))
         }.resume()
@@ -88,7 +88,7 @@ struct HomeService: HomeComponentsDataFetchable {
                 return completion(.failure(.unDecodedError))
             }
             completion(.success(decodedImageData))
-        }.resume() // imageURL only
+        }.resume() 
     }
     
     func fetchData(of kind: HomeAPI, completion: @escaping (Result<BeverageInfoDTO, NetworkError>) -> Void) {

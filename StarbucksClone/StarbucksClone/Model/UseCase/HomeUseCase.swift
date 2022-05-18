@@ -8,7 +8,8 @@
 import Foundation
 
 protocol HomeManagable {
-    func getHomeComponentsData(completion: @escaping (Result<HomeComponents, NetworkError>) -> Void)
+    func getHomeComponentsData()
+    func setDelegate(delegate: HomeUseCaseDelegate)
 }
 
 final class HomeUseCase: HomeManagable {
@@ -22,15 +23,25 @@ final class HomeUseCase: HomeManagable {
         self.homeComponentsDataGettable.setDelegate(delegate: self)
     }
     
-    func getHomeComponentsData(completion: @escaping (Result<HomeComponents, NetworkError>) -> Void) {
+    func getHomeComponentsData() {
+        guard let nickName = userDefaultManagable.getStringFromUserDefault(by: .userNickname) else { return }
+        delegate?.updateUserNickname(nickName + "님을 위한 추천 메뉴")
         homeComponentsDataGettable.getHomeComponentsData()
+    }
+    
+    func setDelegate(delegate: HomeUseCaseDelegate) {
+        self.delegate = delegate
     }
 
 }
 
 extension HomeUseCase: HomeRepositoryDelegate {
-    func updateEventImageURL(url: String) {
-        print("eventURL Success : \(url)")
+    func updateEventImage(data: Data) {
+        delegate?.updateEventImageData(data: data)
+    }
+    
+    func updateBeverageData(product: ProductDescription) {
+        delegate?.updateBeverage(product: product)
     }
     
     func getHomeComponentsDataError(error: NetworkError) {
@@ -40,12 +51,15 @@ extension HomeUseCase: HomeRepositoryDelegate {
     func getBeverageError(error: NetworkError) {
         print("getBeverage error \(error)")
     }
-    
-    func updateBeverageData(product: ProductDescription) {
-        print("success!! product \(product)")
+
+    func getImageDataError(error: NetworkError) {
+        print("getimageData error \(error)")
     }
 }
 
 protocol HomeUseCaseDelegate: AnyObject {
+    func updateUserNickname(_ nickName: String)
     func updateHomeComponents(_ components: HomeComponents)
+    func updateEventImageData(data: Data)
+    func updateBeverage(product: ProductDescription)
 }

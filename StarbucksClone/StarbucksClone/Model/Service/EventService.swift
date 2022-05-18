@@ -54,4 +54,5 @@ enum NetworkError: Error {
     case noResponse
     case serverError(statusCode: Int)
     case unDecodedError
+    case noImageError
 }

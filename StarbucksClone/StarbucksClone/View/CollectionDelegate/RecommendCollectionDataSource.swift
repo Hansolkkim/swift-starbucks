@@ -8,16 +8,17 @@
 import UIKit
 
 class RecommendCollectionDataSource: NSObject{
-    var recommends: [RecommendDTO?]?
-    
+    var recommends: [ProductDescription] = []
 }
 extension RecommendCollectionDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommends?.count ?? 0
+        return recommends.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommentCollectionCell.cellIdentifier, for: indexPath) as? RecommentCollectionCell else { return UICollectionViewCell() }
+        let product = recommends[indexPath.row]
+        cell.setInfo(by: product)
         return cell
     }
 }

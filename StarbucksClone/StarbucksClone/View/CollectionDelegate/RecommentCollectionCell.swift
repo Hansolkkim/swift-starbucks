@@ -24,9 +24,9 @@ final class RecommentCollectionCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "abcdefu"
         label.textAlignment = .center
-        label.font.withSize(18)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -42,7 +42,6 @@ final class RecommentCollectionCell: UICollectionViewCell {
     
     private func setupUI(){
         contentView.addSubview(basicView)
-        basicView.backgroundColor = .yellow
         basicView.snp.makeConstraints { make in
             make.width.height.equalTo(self)
             make.center.equalTo(self.snp.center)
@@ -54,19 +53,18 @@ final class RecommentCollectionCell: UICollectionViewCell {
             make.top.equalTo(basicView).offset(5)
             make.centerX.equalTo(basicView.snp.centerX)
             make.width.height.equalTo(110)
-            //make.bottom.equalTo(titleLabel.snp.top).offset(-10)
         }
-        imageView.backgroundColor = .brown
+        
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.top.equalTo(imageView.snp.bottom)
             make.leading.equalTo(basicView).offset(10)
             make.trailing.equalTo(basicView).offset(-10)
-            make.bottom.equalTo(basicView.snp.bottom).offset(-10)
+            make.bottom.equalTo(basicView.snp.bottom)
         }
     }
     
-    func setInfo(by product: RecommendDTO){
-        imageView.image = UIImage(named: product.imageURL)
+    func setInfo(by product: ProductDescription){
+        imageView.image = UIImage(data: product.imageData)
         titleLabel.text = product.title
     }
 }
