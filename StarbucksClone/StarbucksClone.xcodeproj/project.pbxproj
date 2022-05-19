@@ -53,6 +53,7 @@
 		727C29B62834893B00E0C69A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727C29B52834893B00E0C69A /* UIView.swift */; };
 		72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888EDD28323F4A005C032D /* DependencyInjector.swift */; };
 		72888EE02832404C005C032D /* SceneDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888EDF2832404C005C032D /* SceneDependency.swift */; };
+		72892A332835DC9100EC6133 /* HomeScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72892A322835DC9100EC6133 /* HomeScrollViewDelegate.swift */; };
 		72FD49B528336C1700E5322A /* EventRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FD49B428336C1700E5322A /* EventRepositoryStub.swift */; };
 		88CE0531D12E07ADD02E8395 /* Pods_StarbucksClone_StarbucksCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5245BF4C57BE6797364788E0 /* Pods_StarbucksClone_StarbucksCloneUITests.framework */; };
 		E6066FF0B88424816200329F /* Pods_StarbucksClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871A3EB602F35A0D93F8F62 /* Pods_StarbucksClone.framework */; };
@@ -127,6 +128,7 @@
 		727C29B52834893B00E0C69A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		72888EDD28323F4A005C032D /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		72888EDF2832404C005C032D /* SceneDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDependency.swift; sourceTree = "<group>"; };
+		72892A322835DC9100EC6133 /* HomeScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScrollViewDelegate.swift; sourceTree = "<group>"; };
 		72FD49B428336C1700E5322A /* EventRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepositoryStub.swift; sourceTree = "<group>"; };
 		8871A3EB602F35A0D93F8F62 /* Pods_StarbucksClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarbucksClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98582D50427383EA793B2D81 /* Pods-StarbucksClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarbucksClone.debug.xcconfig"; path = "Target Support Files/Pods-StarbucksClone/Pods-StarbucksClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				7202D2DC283386B700683403 /* RecommendCollectionDelegate.swift */,
 				7202D2DE2833890600683403 /* RecommendCollectionDataSource.swift */,
 				7202D2E228338B1900683403 /* RecommentCollectionCell.swift */,
+				72892A322835DC9100EC6133 /* HomeScrollViewDelegate.swift */,
 			);
 			path = CollectionDelegate;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				02DFA2FB282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift in Sources */,
 				02E32FE4283404C10045A371 /* HomeComponentsDTO.swift in Sources */,
 				02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */,
+				72892A332835DC9100EC6133 /* HomeScrollViewDelegate.swift in Sources */,
 				022DF8AF282E1F4E0022A954 /* HomeViewController.swift in Sources */,
 				02E32FDE2834048B0045A371 /* HomeRepository.swift in Sources */,
 				7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */,

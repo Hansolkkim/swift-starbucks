@@ -11,6 +11,7 @@ final class HomeViewController: UIViewController {
     
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = RecommendCollectionDataSource()
+    private let homeScrollDelegate = HomeScrollViewDelegate()
     private var homeManagable: HomeManagable? = HomeUseCase(homeComponentsDataGettable: HomeRepository(homeService: HomeService()))
     
     override func viewDidLoad() {
@@ -20,6 +21,8 @@ final class HomeViewController: UIViewController {
         homeManagable?.setDelegate(delegate: self)
         homeView.setRecommendCollectionDatasource(dataSource: dataSource)
         homeManagable?.getHomeComponentsData()
+        homeScrollDelegate.delegate = self
+        homeView.scrollView.delegate = homeScrollDelegate
     }
     
     private func setNavigationCustomTitle(){
@@ -53,6 +56,28 @@ extension HomeViewController: HomeUseCaseDelegate {
     
     func updateEventImageData(data: Data) {
         homeView.updateImageView(data: data)
+    }
+}
+
+extension HomeViewController: HomeScrollActionDeleagte {
+    func scrollMoveUp() {
+        UIView.animate(withDuration: 0.3) {
+            self.homeView.unfoldingDelivaryView()
+            self.homeView.layoutIfNeeded()
+        }
+    }
+    
+    func scrollMoveDown() {
+        UIView.animate(withDuration: 0.3) {
+//            self.homeView.deliveryButton.snp.remakeConstraints { make in
+//                make.trailing.equalTo(self.homeView.safeAreaLayoutGuide.snp.trailing).offset(-20)
+//                make.bottom.equalTo(self.homeView.safeAreaLayoutGuide.snp.bottom).offset(-20)
+//                make.height.equalTo(60)
+//                make.width.equalTo(150)
+//            }
+            self.homeView.foldingDelivaryView()
+            self.homeView.layoutIfNeeded()
+        }
     }
 }
 

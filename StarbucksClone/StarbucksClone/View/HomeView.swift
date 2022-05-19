@@ -9,8 +9,7 @@ import SnapKit
 
 final class HomeView: UIView {
     
-    private let scrollView = UIScrollView()
-    
+    let scrollView = UIScrollView()
     private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -31,10 +30,8 @@ final class HomeView: UIView {
     
     private let eventImageView: UIImageView = {
         let imageView = UIImageView()
-        
         return imageView
     }()
-    
     
     var popularMenuCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -44,6 +41,31 @@ final class HomeView: UIView {
         collectionView.register(RecommentCollectionCell.self, forCellWithReuseIdentifier: RecommentCollectionCell.cellIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
+    }()
+    
+    private let deliveryView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 30
+        return view
+    }()
+    
+    private let deliveryLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.adjustsFontSizeToFitWidth = true
+        label.text = "Delivery"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        return label
+    }()
+    
+    let deliveryImageView: UIImageView = {
+        let deliveryImageView = UIImageView()
+        deliveryImageView.image = UIImage(systemName: "bicycle")
+        deliveryImageView.contentMode = .scaleAspectFit
+        deliveryImageView.tintColor = .white
+        deliveryImageView.image?.withTintColor(.white)
+        return deliveryImageView
     }()
     
     override init(frame: CGRect){
@@ -59,6 +81,7 @@ final class HomeView: UIView {
     private func setupUI(){
         backgroundColor = .white
         addSubview(scrollView)
+        addSubview(deliveryView)
         scrollView.snp.makeConstraints { make in
             make.width.height.equalTo(self)
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
@@ -90,8 +113,28 @@ final class HomeView: UIView {
             make.trailing.equalTo(self.snp.trailing).offset(-10)
             make.height.equalTo(400)
         }
-        eventImageView.backgroundColor = .blue
         
+        deliveryView.addSubViews(deliveryLabel, deliveryImageView)
+        
+        deliveryView.snp.makeConstraints { make in
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-20)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.height.equalTo(60)
+            make.width.equalTo(150)
+        }
+        deliveryView.backgroundColor = UIColor.starbuckstButtonGreen
+        
+        deliveryImageView.snp.makeConstraints { make in
+            make.leading.equalTo(deliveryView.snp.leading).offset(10)
+            make.centerY.equalTo(deliveryView.snp.centerY)
+            make.width.height.equalTo(45)
+        }
+        
+        deliveryLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(deliveryView.snp.centerY)
+            make.width.equalTo(80)
+            make.leading.equalTo(deliveryImageView.snp.trailing).offset(5)
+        }
     }
 }
 extension HomeView {
@@ -122,6 +165,49 @@ extension HomeView {
                 make.trailing.equalTo(self.snp.trailing).offset(-10)
             }
         }
+    }
+    
+    func unfoldingDelivaryView(){
+        deliveryView.snp.remakeConstraints { make in
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-20)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.height.equalTo(60)
+            make.width.equalTo(150)
+        }
+        deliveryView.addSubview(deliveryLabel)
+        deliveryLabel.snp.remakeConstraints { make in
+            make.centerY.equalTo(deliveryView.snp.centerY)
+            make.width.equalTo(80)
+            make.leading.equalTo(deliveryImageView.snp.trailing).offset(5)
+        }
+        
+        deliveryImageView.snp.remakeConstraints { make in
+            make.leading.equalTo(deliveryView.snp.leading).offset(10)
+            make.centerY.equalTo(deliveryView.snp.centerY)
+            make.width.height.equalTo(50)
+        }
+
+    }
+    
+    func foldingDelivaryView(){
+        deliveryView.snp.remakeConstraints { make in
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-20)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.width.height.equalTo(60)
+        }
+        
+        deliveryImageView.snp.remakeConstraints { make in
+            make.top.leading.equalTo(deliveryView).offset(5)
+            make.center.equalTo(deliveryView.snp.center)
+        }
+        
+        deliveryLabel.snp.remakeConstraints { make in
+            make.centerY.equalTo(deliveryView.snp.centerY)
+            make.width.equalTo(0)
+            make.leading.equalTo(deliveryImageView.snp.trailing).offset(10)
+            make.trailing.equalTo(deliveryView.snp.trailing).offset(-10)
+        }
+        
     }
     
 }
