@@ -36,8 +36,8 @@ final class HomeUseCase: HomeManagable {
 }
 
 extension HomeUseCase: HomeRepositoryDelegate {
-    func updateEventImage(data: Data) {
-        delegate?.updateEventImageData(data: data)
+    func updateMainEventImage(data: Data) {
+        delegate?.updateMainEventImageData(data: data)
     }
     
     func updateBeverageData(product: ProductDescription) {
@@ -47,6 +47,10 @@ extension HomeUseCase: HomeRepositoryDelegate {
     func getHomeComponentsDataError(error: NetworkError) {
         print("getHomeComponentData error \(error)")
     }
+
+    func updateEventData(event: HomeEventDescription) {
+        delegate?.updateEvent(event)
+    }
     
     func getBeverageError(error: NetworkError) {
         print("getBeverage error \(error)")
@@ -55,11 +59,16 @@ extension HomeUseCase: HomeRepositoryDelegate {
     func getImageDataError(error: NetworkError) {
         print("getimageData error \(error)")
     }
+
+    func getHomeEventError(error: NetworkError) {
+        print("getHomeEvent Error \(error)")
+    }
 }
 
 protocol HomeUseCaseDelegate: AnyObject {
     func updateUserNickname(_ nickName: String)
     func updateHomeComponents(_ components: HomeComponents)
-    func updateEventImageData(data: Data)
+    func updateMainEventImageData(data: Data)
     func updateBeverage(product: ProductDescription)
+    func updateEvent(_ event: HomeEventDescription)
 }

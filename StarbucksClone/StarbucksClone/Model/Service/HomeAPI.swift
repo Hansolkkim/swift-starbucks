@@ -11,6 +11,7 @@ enum HomeAPI {
     case fetchHomeComponents
     case fetchBeverageImages(_ imageCD: String)
     case fetchBeverageInfo(_ infoCD: String)
+    case fetchHomeEventData
 
     var baseURL: String {
         switch self {
@@ -18,6 +19,8 @@ enum HomeAPI {
             return "https://api.codesquad.kr"
         case .fetchBeverageImages(_), .fetchBeverageInfo(_):
             return "https://www.starbucks.co.kr/menu"
+        case .fetchHomeEventData:
+            return "https://www.starbucks.co.kr/whats_new"
         }
     }
 
@@ -29,6 +32,8 @@ enum HomeAPI {
             return "/productFileAjax.do"
         case .fetchBeverageInfo(_):
             return "/productViewAjax.do"
+        case .fetchHomeEventData:
+            return "/getIngList.do"
         }
     }
 
@@ -36,7 +41,7 @@ enum HomeAPI {
         switch self {
         case .fetchHomeComponents:
             return "GET"
-        case .fetchBeverageImages(_), .fetchBeverageInfo(_):
+        case .fetchBeverageImages(_), .fetchBeverageInfo(_), .fetchHomeEventData:
             return "POST"
         }
     }
@@ -45,7 +50,7 @@ enum HomeAPI {
         switch self {
         case .fetchHomeComponents:
             return nil
-        case .fetchBeverageImages(_), .fetchBeverageInfo(_):
+        case .fetchBeverageImages(_), .fetchBeverageInfo(_), .fetchHomeEventData:
             return "application/x-www-form-urlencoded; charset=utf-8"
         }
     }
@@ -58,6 +63,8 @@ enum HomeAPI {
             return ["PRODUCT_CD": cd]
         case .fetchBeverageInfo(let cd):
             return ["product_cd": cd]
+        case .fetchHomeEventData:
+            return ["MENU_CD": "all"]
         }
     }
 }

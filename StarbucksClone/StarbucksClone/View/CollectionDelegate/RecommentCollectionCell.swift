@@ -14,7 +14,6 @@ final class RecommentCollectionCell: UICollectionViewCell {
     private lazy var basicView = UIView(frame: self.frame)
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "gucci")
         imageView.contentMode = .scaleToFill
         imageView.tintColor = .black
         imageView.layer.cornerRadius = 55

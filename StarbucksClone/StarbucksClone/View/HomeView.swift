@@ -8,8 +8,11 @@
 import SnapKit
 
 final class HomeView: UIView {
+
+    weak var action: HomeViewAction?
     
     let scrollView = UIScrollView()
+
     private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -31,6 +34,29 @@ final class HomeView: UIView {
     private let eventImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
+    }()
+
+    private let seeAllButton: UIButton = {
+        let button = UIButton()
+
+        let title = "See all"
+        let font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        let attributedTitle = NSMutableAttributedString(string: title)
+        attributedTitle.addAttribute(.font, value: font, range: .init(0..<title.count))
+
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.setTitleColor(.starbuckstButtonGreen, for: .normal)
+        return button
+    }()
+
+    var homeEventCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 250, height: 180)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(HomeEventCollectionCell.self, forCellWithReuseIdentifier: HomeEventCollectionCell.cellIdentifier)
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
     }()
     
     var popularMenuCollectionView: UICollectionView = {
@@ -71,11 +97,13 @@ final class HomeView: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         setupUI()
+        addAction()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
+        addAction()
     }
     
     private func setupUI(){
@@ -91,7 +119,7 @@ final class HomeView: UIView {
         scrollView.contentSize.height = 1000
         scrollView.contentSize.width = self.frame.width
         scrollView.backgroundColor = .white
-        scrollView.addSubViews(nicknameLabel, recommandCollectionView, eventImageView)
+        scrollView.addSubViews(nicknameLabel, recommandCollectionView, eventImageView, homeEventCollectionView)
         
         nicknameLabel.snp.makeConstraints { make in
             make.top.equalTo(scrollView.snp.top).offset(10)
@@ -134,6 +162,22 @@ final class HomeView: UIView {
             make.centerY.equalTo(deliveryView.snp.centerY)
             make.width.equalTo(80)
             make.leading.equalTo(deliveryImageView.snp.trailing).offset(5)
+        }
+
+        homeEventCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(eventImageView.snp.bottom).offset(10)
+            make.leading.equalTo(self.snp.leading).offset(10)
+            make.trailing.equalTo(self.snp.trailing)
+            make.height.equalTo(300)
+        }
+
+        homeEventCollectionView.addSubview(seeAllButton)
+
+        seeAllButton.snp.makeConstraints { make in
+            make.top.equalTo(homeEventCollectionView.frameLayoutGuide.snp.top).offset(20)
+            make.trailing.equalTo(homeEventCollectionView.frameLayoutGuide.snp.trailing)
+            make.width.equalTo(80)
+            make.height.equalTo(30)
         }
     }
 }
@@ -188,6 +232,16 @@ extension HomeView {
         }
 
     }
+
+    func setHomeEventCollectionDataSource(dataSource: UICollectionViewDataSource) {
+        homeEventCollectionView.dataSource = dataSource
+    }
+
+    private func addAction() {
+        seeAllButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.action?.userDidInput(.whatsNewButtonTapped)
+        }), for: .touchUpInside)
+    }
     
     func foldingDelivaryView(){
         deliveryView.snp.remakeConstraints { make in
@@ -210,4 +264,14 @@ extension HomeView {
         
     }
     
+}
+
+extension HomeView {
+    enum UserAction {
+        case whatsNewButtonTapped
+    }
+}
+
+protocol HomeViewAction: AnyObject{
+    func userDidInput(_ input: HomeView.UserAction)
 }

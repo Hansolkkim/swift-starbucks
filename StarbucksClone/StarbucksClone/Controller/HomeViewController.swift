@@ -12,6 +12,7 @@ final class HomeViewController: UIViewController {
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = RecommendCollectionDataSource()
     private let homeScrollDelegate = HomeScrollViewDelegate()
+    private let eventDataSource = HomeEventCollectionDataSource()
     private var homeManagable: HomeManagable? = HomeUseCase(homeComponentsDataGettable: HomeRepository(homeService: HomeService()))
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ final class HomeViewController: UIViewController {
         setNavigationCustomTitle()
         homeManagable?.setDelegate(delegate: self)
         homeView.setRecommendCollectionDatasource(dataSource: dataSource)
+        homeView.setHomeEventCollectionDataSource(dataSource: eventDataSource)
         homeManagable?.getHomeComponentsData()
         homeScrollDelegate.delegate = self
         homeView.scrollView.delegate = homeScrollDelegate
@@ -39,6 +41,14 @@ final class HomeViewController: UIViewController {
             self.homeView.recommandCollectionView.insertItems(at: [IndexPath(item: self.dataSource.recommends.count - 1, section: 0)])
         }
     }
+
+    private func setHomeEventCollectionData(event: HomeEventDescription) {
+        eventDataSource.events.append(event)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.homeView.homeEventCollectionView.insertItems(at: [IndexPath(item: self.eventDataSource.events.count - 1, section: 0)])
+        }
+    }
 }
 
 extension HomeViewController: HomeUseCaseDelegate {
@@ -54,8 +64,12 @@ extension HomeViewController: HomeUseCaseDelegate {
         
     }
     
-    func updateEventImageData(data: Data) {
+    func updateMainEventImageData(data: Data) {
         homeView.updateImageView(data: data)
+    }
+
+    func updateEvent(_ event: HomeEventDescription) {
+        setHomeEventCollectionData(event: event)
     }
 }
 
@@ -98,6 +112,7 @@ extension HomeViewController {
         }
         
         navigationController.modalPresentationStyle = .fullScreen
+        tabBarController.view.tintColor = .starbuckstButtonGreen
         navigationController.pushViewController(tabBarController, animated: true)
         return navigationController
     }

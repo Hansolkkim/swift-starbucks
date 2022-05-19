@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		022DF8AF282E1F4E0022A954 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022DF8AE282E1F4E0022A954 /* HomeViewController.swift */; };
 		0274E8E5282A010E0074C3E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0274E8E4282A010E0074C3E8 /* LoginView.swift */; };
+		02BBAEBF2834E553003E4A9C /* HomeEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEBE2834E553003E4A9C /* HomeEventDTO.swift */; };
+		02BBAEC12834EE43003E4A9C /* HomeEventDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEC02834EE43003E4A9C /* HomeEventDescription.swift */; };
+		02BBAEC52835DB48003E4A9C /* HomeEventCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEC42835DB48003E4A9C /* HomeEventCollectionDataSource.swift */; };
+		02BBAECD2836122D003E4A9C /* HomeEventCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAECC2836122D003E4A9C /* HomeEventCollectionCell.swift */; };
 		02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60142832449500AE9C00 /* LoginDependency.swift */; };
 		02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60162832489A00AE9C00 /* EventDependency.swift */; };
 		02DA60402833714A00AE9C00 /* KakaoLoginStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA603E28336CEB00AE9C00 /* KakaoLoginStub.swift */; };
@@ -79,6 +83,10 @@
 /* Begin PBXFileReference section */
 		022DF8AE282E1F4E0022A954 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0274E8E4282A010E0074C3E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		02BBAEBE2834E553003E4A9C /* HomeEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventDTO.swift; sourceTree = "<group>"; };
+		02BBAEC02834EE43003E4A9C /* HomeEventDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventDescription.swift; sourceTree = "<group>"; };
+		02BBAEC42835DB48003E4A9C /* HomeEventCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventCollectionDataSource.swift; sourceTree = "<group>"; };
+		02BBAECC2836122D003E4A9C /* HomeEventCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventCollectionCell.swift; sourceTree = "<group>"; };
 		02DA60142832449500AE9C00 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
 		02DA60162832489A00AE9C00 /* EventDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDependency.swift; sourceTree = "<group>"; };
 		02DA603E28336CEB00AE9C00 /* KakaoLoginStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginStub.swift; sourceTree = "<group>"; };
@@ -221,6 +229,7 @@
 				720B05362831ECD1000C630F /* ViewControllerComponents.swift */,
 				02E32FDF283404A30045A371 /* HomeComponents.swift */,
 				02E32FE1283404B50045A371 /* ProductDescription.swift */,
+				02BBAEC02834EE43003E4A9C /* HomeEventDescription.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -262,6 +271,7 @@
 				02E32FE3283404C10045A371 /* HomeComponentsDTO.swift */,
 				02E32FE5283484030045A371 /* BeverageImageDTO.swift */,
 				02E32FE72834895F0045A371 /* BeverageInfoDTO.swift */,
+				02BBAEBE2834E553003E4A9C /* HomeEventDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -273,6 +283,8 @@
 				7202D2DE2833890600683403 /* RecommendCollectionDataSource.swift */,
 				7202D2E228338B1900683403 /* RecommentCollectionCell.swift */,
 				72892A322835DC9100EC6133 /* HomeScrollViewDelegate.swift */,
+				02BBAEC42835DB48003E4A9C /* HomeEventCollectionDataSource.swift */,
+				02BBAECC2836122D003E4A9C /* HomeEventCollectionCell.swift */,
 			);
 			path = CollectionDelegate;
 			sourceTree = "<group>";
@@ -622,6 +634,7 @@
 				02E32FE82834895F0045A371 /* BeverageInfoDTO.swift in Sources */,
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				727C29B62834893B00E0C69A /* UIView.swift in Sources */,
+				02BBAECD2836122D003E4A9C /* HomeEventCollectionCell.swift in Sources */,
 				02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */,
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
 				02E32FDC283404760045A371 /* HomeService.swift in Sources */,
@@ -636,6 +649,7 @@
 				02DFA2F5282CA209005834D6 /* EventRepository.swift in Sources */,
 				02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */,
 				02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */,
+				02BBAEC52835DB48003E4A9C /* HomeEventCollectionDataSource.swift in Sources */,
 				726656062829039400FCE427 /* AppDelegate.swift in Sources */,
 				02DFA2F1282BAD7E005834D6 /* UIColor+.swift in Sources */,
 				02E32FE0283404A30045A371 /* HomeComponents.swift in Sources */,
@@ -647,6 +661,7 @@
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
 				02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */,
 				7202D2DF2833890600683403 /* RecommendCollectionDataSource.swift in Sources */,
+				02BBAEBF2834E553003E4A9C /* HomeEventDTO.swift in Sources */,
 				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,
 				02E32FD82834041A0045A371 /* HomeUseCase.swift in Sources */,
 				72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */,
@@ -654,6 +669,7 @@
 				7202D2D82833742F00683403 /* HomeView.swift in Sources */,
 				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
 				02DFA2E8282BA605005834D6 /* EventView.swift in Sources */,
+				02BBAEC12834EE43003E4A9C /* HomeEventDescription.swift in Sources */,
 				02E32FE2283404B50045A371 /* ProductDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

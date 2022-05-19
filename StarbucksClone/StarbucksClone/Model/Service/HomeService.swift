@@ -12,6 +12,7 @@ protocol HomeComponentsDataFetchable {
     func fetchData(of kind: HomeAPI, completion: @escaping (Result<BeverageImageDTO, NetworkError>) -> Void)
     func fetchData(of kind: HomeAPI, completion: @escaping (Result<BeverageInfoDTO, NetworkError>) -> Void)
     func fetchImage(of url: String, completion: @escaping (Result<Data, NetworkError>) -> Void)
+    func fetchData(of kind: HomeAPI, completion: @escaping (Result<HomeEventDTO, NetworkError>) -> Void)
 }
 
 struct HomeService: HomeComponentsDataFetchable {
@@ -54,7 +55,6 @@ struct HomeService: HomeComponentsDataFetchable {
             }
             
             guard let decodedData = decodeData(of: data) else {
-                print("decode error \(String(data: data, encoding: .utf8))")
                 return completion(.failure(.unDecodedError))
             }
             
@@ -84,7 +84,6 @@ struct HomeService: HomeComponentsDataFetchable {
             }
             
             guard let decodedImageData = try? JSONDecoder().decode(BeverageImageDTO.self, from: data) else {
-                print("decode error \(String(data: data, encoding: .utf8))")
                 return completion(.failure(.unDecodedError))
             }
             completion(.success(decodedImageData))
@@ -113,11 +112,38 @@ struct HomeService: HomeComponentsDataFetchable {
             }
             
             guard let decodedInfoData = try? JSONDecoder().decode(BeverageInfoDTO.self, from: data) else {
-                print("decode error \(String(data: data, encoding: .utf8))")
                 return completion(.failure(.unDecodedError))
             }
             completion(.success(decodedInfoData))
         }.resume() // title only
+    }
+
+    func fetchData(of kind: HomeAPI, completion: @escaping (Result<HomeEventDTO, NetworkError>) -> Void) {
+        guard let request = makeRequest(of: kind) else { return }
+        urlSession.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                return completion(.failure(.transferError))
+            }
+            
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                return completion(.failure(.noResponse))
+            }
+            
+            let statusCode = response.statusCode
+            
+            guard 200..<300 ~= statusCode else {
+                return completion(.failure(.serverError(statusCode: statusCode)))
+            }
+
+            guard let decodedEventData = try? JSONDecoder().decode(HomeEventDTO.self, from: data) else {
+                return completion(.failure(.unDecodedError))
+            }
+            completion(.success(decodedEventData))
+        }.resume()
     }
     
     

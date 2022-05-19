@@ -35,13 +35,22 @@ struct HomeRepository: HomeComponentsGettable {
                 delegate?.getHomeComponentsDataError(error: error)
             }
         }
+
+        homeService.fetchData(of: .fetchHomeEventData) { (result: Result<HomeEventDTO, NetworkError>) in
+            switch result {
+            case .success(let homeEventDTO):
+                getEventData(events: homeEventDTO.list)
+            case .failure(let error):
+                delegate?.getHomeEventError(error: error)
+            }
+        }
     }
     
     private func getImage(by url: String){
         homeService.fetchImage(of: url) { result in
             switch result {
             case .success(let data):
-                delegate?.updateEventImage(data: data)
+                delegate?.updateMainEventImage(data: data)
             case .failure(let error):
                 delegate?.getImageDataError(error: error)
             }
@@ -106,12 +115,31 @@ struct HomeRepository: HomeComponentsGettable {
             }
         }
     }
+
+    private func getEventData(events: [List]) {
+        for event in events {
+            var dto = HomeEventDescription(title: event.title, imageData: Data())
+            let imageURL = event.imageUploadPath + "/upload/promotion/" + event.thumbnailImage
+
+            homeService.fetchImage(of: imageURL) { result in
+                switch result {
+                case .success(let data):
+                    dto.imageData = data
+                    delegate?.updateEventData(event: dto)
+                case .failure(let error):
+                    delegate?.getHomeEventError(error: error)
+                }
+            }
+        }
+    }
 }
 
 protocol HomeRepositoryDelegate: AnyObject{
-    func updateEventImage(data: Data)
+    func updateMainEventImage(data: Data)
     func getImageDataError(error: NetworkError)
     func getHomeComponentsDataError(error: NetworkError)
     func getBeverageError(error: NetworkError)
     func updateBeverageData(product: ProductDescription)
+    func updateEventData(event: HomeEventDescription)
+    func getHomeEventError(error: NetworkError)
 }
