@@ -12,7 +12,16 @@
 		02BBAEBF2834E553003E4A9C /* HomeEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEBE2834E553003E4A9C /* HomeEventDTO.swift */; };
 		02BBAEC12834EE43003E4A9C /* HomeEventDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEC02834EE43003E4A9C /* HomeEventDescription.swift */; };
 		02BBAEC52835DB48003E4A9C /* HomeEventCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEC42835DB48003E4A9C /* HomeEventCollectionDataSource.swift */; };
+		02BBAEC728360FFC003E4A9C /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEC628360FFC003E4A9C /* WhatsNewViewController.swift */; };
+		02BBAEC928361077003E4A9C /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEC828361077003E4A9C /* WhatsNewView.swift */; };
+		02BBAECB283611CB003E4A9C /* WhatsNewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAECA283611CB003E4A9C /* WhatsNewCollectionCell.swift */; };
 		02BBAECD2836122D003E4A9C /* HomeEventCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAECC2836122D003E4A9C /* HomeEventCollectionCell.swift */; };
+		02BBAECF283619AE003E4A9C /* WhatsNewCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAECE283619AE003E4A9C /* WhatsNewCollectionDataSource.swift */; };
+		02BBAED5283623E9003E4A9C /* WhatsNewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAED4283623E9003E4A9C /* WhatsNewUseCase.swift */; };
+		02BBAED728362422003E4A9C /* WhatsNewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAED628362422003E4A9C /* WhatsNewRepository.swift */; };
+		02BBAED928362468003E4A9C /* WhatsNewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAED828362468003E4A9C /* WhatsNewService.swift */; };
+		02BBAEDB28362775003E4A9C /* WhatsNewEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEDA28362775003E4A9C /* WhatsNewEventDTO.swift */; };
+		02BBAEDD2836284F003E4A9C /* WhatsNewEventDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEDC2836284F003E4A9C /* WhatsNewEventDescription.swift */; };
 		02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60142832449500AE9C00 /* LoginDependency.swift */; };
 		02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60162832489A00AE9C00 /* EventDependency.swift */; };
 		02DA60402833714A00AE9C00 /* KakaoLoginStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA603E28336CEB00AE9C00 /* KakaoLoginStub.swift */; };
@@ -86,7 +95,16 @@
 		02BBAEBE2834E553003E4A9C /* HomeEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventDTO.swift; sourceTree = "<group>"; };
 		02BBAEC02834EE43003E4A9C /* HomeEventDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventDescription.swift; sourceTree = "<group>"; };
 		02BBAEC42835DB48003E4A9C /* HomeEventCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventCollectionDataSource.swift; sourceTree = "<group>"; };
+		02BBAEC628360FFC003E4A9C /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
+		02BBAEC828361077003E4A9C /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		02BBAECA283611CB003E4A9C /* WhatsNewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCollectionCell.swift; sourceTree = "<group>"; };
 		02BBAECC2836122D003E4A9C /* HomeEventCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventCollectionCell.swift; sourceTree = "<group>"; };
+		02BBAECE283619AE003E4A9C /* WhatsNewCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCollectionDataSource.swift; sourceTree = "<group>"; };
+		02BBAED4283623E9003E4A9C /* WhatsNewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewUseCase.swift; sourceTree = "<group>"; };
+		02BBAED628362422003E4A9C /* WhatsNewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewRepository.swift; sourceTree = "<group>"; };
+		02BBAED828362468003E4A9C /* WhatsNewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewService.swift; sourceTree = "<group>"; };
+		02BBAEDA28362775003E4A9C /* WhatsNewEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewEventDTO.swift; sourceTree = "<group>"; };
+		02BBAEDC2836284F003E4A9C /* WhatsNewEventDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewEventDescription.swift; sourceTree = "<group>"; };
 		02DA60142832449500AE9C00 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
 		02DA60162832489A00AE9C00 /* EventDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDependency.swift; sourceTree = "<group>"; };
 		02DA603E28336CEB00AE9C00 /* KakaoLoginStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginStub.swift; sourceTree = "<group>"; };
@@ -183,6 +201,7 @@
 				02DFA2E7282BA605005834D6 /* EventView.swift */,
 				7202D2D72833742F00683403 /* HomeView.swift */,
 				7202D2D92833759500683403 /* WhatsNewTitleView.swift */,
+				02BBAEC828361077003E4A9C /* WhatsNewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +212,7 @@
 				726656092829039400FCE427 /* LoginViewController.swift */,
 				02DFA2E9282BA9B6005834D6 /* EventViewController.swift */,
 				022DF8AE282E1F4E0022A954 /* HomeViewController.swift */,
+				02BBAEC628360FFC003E4A9C /* WhatsNewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,6 +238,7 @@
 				724CB066282A3EB4001DD361 /* LoginUseCase.swift */,
 				02DFA2F2282BF9D1005834D6 /* EventUseCase.swift */,
 				02E32FD72834041A0045A371 /* HomeUseCase.swift */,
+				02BBAED4283623E9003E4A9C /* WhatsNewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -230,6 +251,7 @@
 				02E32FDF283404A30045A371 /* HomeComponents.swift */,
 				02E32FE1283404B50045A371 /* ProductDescription.swift */,
 				02BBAEC02834EE43003E4A9C /* HomeEventDescription.swift */,
+				02BBAEDC2836284F003E4A9C /* WhatsNewEventDescription.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -250,6 +272,7 @@
 				02DFA2FA282CA59B005834D6 /* CodeSquadStarbuckstAPI.swift */,
 				02E32FDB283404760045A371 /* HomeService.swift */,
 				02E32FD92834044E0045A371 /* HomeAPI.swift */,
+				02BBAED828362468003E4A9C /* WhatsNewService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -259,6 +282,7 @@
 			children = (
 				02DFA2F4282CA209005834D6 /* EventRepository.swift */,
 				02E32FDD2834048B0045A371 /* HomeRepository.swift */,
+				02BBAED628362422003E4A9C /* WhatsNewRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -272,6 +296,7 @@
 				02E32FE5283484030045A371 /* BeverageImageDTO.swift */,
 				02E32FE72834895F0045A371 /* BeverageInfoDTO.swift */,
 				02BBAEBE2834E553003E4A9C /* HomeEventDTO.swift */,
+				02BBAEDA28362775003E4A9C /* WhatsNewEventDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -285,6 +310,8 @@
 				72892A322835DC9100EC6133 /* HomeScrollViewDelegate.swift */,
 				02BBAEC42835DB48003E4A9C /* HomeEventCollectionDataSource.swift */,
 				02BBAECC2836122D003E4A9C /* HomeEventCollectionCell.swift */,
+				02BBAECE283619AE003E4A9C /* WhatsNewCollectionDataSource.swift */,
+				02BBAECA283611CB003E4A9C /* WhatsNewCollectionCell.swift */,
 			);
 			path = CollectionDelegate;
 			sourceTree = "<group>";
@@ -627,6 +654,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BBAED928362468003E4A9C /* WhatsNewService.swift in Sources */,
 				7202D2DA2833759500683403 /* WhatsNewTitleView.swift in Sources */,
 				72888EE02832404C005C032D /* SceneDependency.swift in Sources */,
 				7202D2E128338A9900683403 /* RecommendDTO.swift in Sources */,
@@ -634,6 +662,7 @@
 				02E32FE82834895F0045A371 /* BeverageInfoDTO.swift in Sources */,
 				7266560A2829039400FCE427 /* LoginViewController.swift in Sources */,
 				727C29B62834893B00E0C69A /* UIView.swift in Sources */,
+				02BBAEC728360FFC003E4A9C /* WhatsNewViewController.swift in Sources */,
 				02BBAECD2836122D003E4A9C /* HomeEventCollectionCell.swift in Sources */,
 				02DFA2EA282BA9B6005834D6 /* EventViewController.swift in Sources */,
 				724CB069282A3EC8001DD361 /* KakaoLogin.swift in Sources */,
@@ -642,10 +671,13 @@
 				02E32FE4283404C10045A371 /* HomeComponentsDTO.swift in Sources */,
 				02DFA2F9282CA50A005834D6 /* EventService.swift in Sources */,
 				72892A332835DC9100EC6133 /* HomeScrollViewDelegate.swift in Sources */,
+				02BBAEDD2836284F003E4A9C /* WhatsNewEventDescription.swift in Sources */,
+				02BBAECF283619AE003E4A9C /* WhatsNewCollectionDataSource.swift in Sources */,
 				022DF8AF282E1F4E0022A954 /* HomeViewController.swift in Sources */,
 				02E32FDE2834048B0045A371 /* HomeRepository.swift in Sources */,
 				7210186D282CA7CD00D36E1F /* StarbuckstDTO.swift in Sources */,
 				02DFA2DF282B8C3C005834D6 /* UserData.swift in Sources */,
+				02BBAEDB28362775003E4A9C /* WhatsNewEventDTO.swift in Sources */,
 				02DFA2F5282CA209005834D6 /* EventRepository.swift in Sources */,
 				02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */,
 				02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */,
@@ -659,6 +691,7 @@
 				7202D2DD283386B700683403 /* RecommendCollectionDelegate.swift in Sources */,
 				720B05372831ECD1000C630F /* ViewControllerComponents.swift in Sources */,
 				726656082829039400FCE427 /* SceneDelegate.swift in Sources */,
+				02BBAED728362422003E4A9C /* WhatsNewRepository.swift in Sources */,
 				02DFA2F3282BF9D1005834D6 /* EventUseCase.swift in Sources */,
 				7202D2DF2833890600683403 /* RecommendCollectionDataSource.swift in Sources */,
 				02BBAEBF2834E553003E4A9C /* HomeEventDTO.swift in Sources */,
@@ -668,8 +701,11 @@
 				02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */,
 				7202D2D82833742F00683403 /* HomeView.swift in Sources */,
 				02DFA2DD282B8589005834D6 /* UserDefaultManager.swift in Sources */,
+				02BBAED5283623E9003E4A9C /* WhatsNewUseCase.swift in Sources */,
+				02BBAEC928361077003E4A9C /* WhatsNewView.swift in Sources */,
 				02DFA2E8282BA605005834D6 /* EventView.swift in Sources */,
 				02BBAEC12834EE43003E4A9C /* HomeEventDescription.swift in Sources */,
+				02BBAECB283611CB003E4A9C /* WhatsNewCollectionCell.swift in Sources */,
 				02E32FE2283404B50045A371 /* ProductDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

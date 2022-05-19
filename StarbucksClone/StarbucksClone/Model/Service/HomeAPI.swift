@@ -12,6 +12,7 @@ enum HomeAPI {
     case fetchBeverageImages(_ imageCD: String)
     case fetchBeverageInfo(_ infoCD: String)
     case fetchHomeEventData
+    case fetchWhatsNewEventData
 
     var baseURL: String {
         switch self {
@@ -21,6 +22,8 @@ enum HomeAPI {
             return "https://www.starbucks.co.kr/menu"
         case .fetchHomeEventData:
             return "https://www.starbucks.co.kr/whats_new"
+        case .fetchWhatsNewEventData:
+            return "https://us-central1-onboarding-5054d.cloudfunctions.net"
         }
     }
 
@@ -34,12 +37,14 @@ enum HomeAPI {
             return "/productViewAjax.do"
         case .fetchHomeEventData:
             return "/getIngList.do"
+        case .fetchWhatsNewEventData:
+            return "/starbucksImageFunction"
         }
     }
 
     var method: String {
         switch self {
-        case .fetchHomeComponents:
+        case .fetchHomeComponents, .fetchWhatsNewEventData:
             return "GET"
         case .fetchBeverageImages(_), .fetchBeverageInfo(_), .fetchHomeEventData:
             return "POST"
@@ -48,7 +53,7 @@ enum HomeAPI {
 
     var headerContentType: String? {
         switch self {
-        case .fetchHomeComponents:
+        case .fetchHomeComponents, .fetchWhatsNewEventData:
             return nil
         case .fetchBeverageImages(_), .fetchBeverageInfo(_), .fetchHomeEventData:
             return "application/x-www-form-urlencoded; charset=utf-8"
@@ -57,7 +62,7 @@ enum HomeAPI {
 
     var parameter: [String: Any]? {
         switch self {
-        case .fetchHomeComponents:
+        case .fetchHomeComponents, .fetchWhatsNewEventData:
             return nil
         case .fetchBeverageImages(let cd):
             return ["PRODUCT_CD": cd]

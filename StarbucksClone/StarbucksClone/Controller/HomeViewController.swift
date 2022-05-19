@@ -25,6 +25,7 @@ final class HomeViewController: UIViewController {
         homeManagable?.getHomeComponentsData()
         homeScrollDelegate.delegate = self
         homeView.scrollView.delegate = homeScrollDelegate
+        homeView.action = self
     }
     
     private func setNavigationCustomTitle(){
@@ -115,5 +116,12 @@ extension HomeViewController {
         tabBarController.view.tintColor = .starbuckstButtonGreen
         navigationController.pushViewController(tabBarController, animated: true)
         return navigationController
+    }
+}
+extension HomeViewController: HomeViewAction {
+    func userDidInput(_ input: HomeView.UserAction) {
+        if input == .whatsNewButtonTapped {
+            present(WhatsNewViewController(), animated: true, completion: nil)
+        }
     }
 }
