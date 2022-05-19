@@ -85,7 +85,7 @@ final class HomeView: UIView {
         return label
     }()
     
-    let deliveryImageView: UIImageView = {
+    private let deliveryImageView: UIImageView = {
         let deliveryImageView = UIImageView()
         deliveryImageView.image = UIImage(systemName: "bicycle")
         deliveryImageView.contentMode = .scaleAspectFit
