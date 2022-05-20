@@ -40,8 +40,8 @@ final class WhatsNewRepository: WhatsNewEventGettable {
     }
 
     private func getWhatsNewEvent(events: [WhatsNewEventDTO]) {
-        for event in events {
-            var description = WhatsNewEventDescription(title: event.title, date: event.startAt)
+        for (index, event) in events.enumerated() {
+            var description = WhatsNewEventDescription(title: event.title, date: event.startAt, index: index)
 
             whatsNewService.fetchImage(of: event.imageURL) { [weak self] result in
                 guard let self = self else { return }

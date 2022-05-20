@@ -22,7 +22,7 @@ class WhatsNewViewController: UIViewController {
     }
 
     private func setWhatsNewEventCollectionData(event: WhatsNewEventDescription) {
-        eventDataSource.events.append(event)
+        eventDataSource.events.insert(event, at: event.index)
 
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }

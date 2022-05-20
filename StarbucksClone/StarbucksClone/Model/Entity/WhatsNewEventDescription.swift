@@ -11,4 +11,5 @@ struct WhatsNewEventDescription {
     var imageData: Data?
     var title: String
     var date: String
+    let index: Int
 }
