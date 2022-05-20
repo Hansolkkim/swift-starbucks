@@ -28,6 +28,7 @@ final class WhatsNewRepository: WhatsNewEventGettable {
             switch result {
             case .success(let whatsNewDTOs):
                 self.getWhatsNewEvent(events: whatsNewDTOs)
+                self.delegate?.setWhatsNewEventDTOs(whatsNewDTOs)
             case .failure(let error):
                 self.delegate?.getWhatsNewEventError(error: error)
             }

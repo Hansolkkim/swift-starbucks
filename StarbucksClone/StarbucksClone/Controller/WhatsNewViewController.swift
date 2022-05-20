@@ -27,7 +27,7 @@ class WhatsNewViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.eventDataSource.events[event.index]?.imageData = event.imageData
-            self.whatsNewView.eventCollectionView.insertItems(at: [IndexPath(item: event.index, section: 0)])
+            self.whatsNewView.eventCollectionView.reloadItems(at: [IndexPath(item: event.index, section: 0)])
         }
     }
 }
@@ -45,5 +45,8 @@ extension WhatsNewViewController: WhatsNewUseCaseDelegate {
         }
 
         eventDataSource.events = descriptions
+        DispatchQueue.main.async { [weak self] in
+            self?.whatsNewView.eventCollectionView.reloadData()
+        }
     }
 }
