@@ -22,11 +22,12 @@ class WhatsNewViewController: UIViewController {
     }
 
     private func setWhatsNewEventCollectionData(event: WhatsNewEventDescription) {
-        eventDataSource.events.append(event)
+//        eventDataSource.events.insert(event, at: event.index)
 
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.whatsNewView.eventCollectionView.insertItems(at: [IndexPath(item: self.eventDataSource.events.count - 1, section: 0)])
+            self.eventDataSource.events[event.index]?.imageData = event.imageData
+            self.whatsNewView.eventCollectionView.reloadItems(at: [IndexPath(item: event.index, section: 0)])
         }
     }
 }
@@ -34,5 +35,18 @@ class WhatsNewViewController: UIViewController {
 extension WhatsNewViewController: WhatsNewUseCaseDelegate {
     func updateEvent(event: WhatsNewEventDescription) {
         setWhatsNewEventCollectionData(event: event)
+    }
+
+    func updateEvents(_ dtos: [WhatsNewEventDTO]) {
+        var descriptions = [WhatsNewEventDescription]()
+        
+        descriptions = dtos.enumerated().map {
+            return WhatsNewEventDescription(title: $0.element.title, date: $0.element.startAt, index: $0.offset)
+        }
+
+        eventDataSource.events = descriptions
+        DispatchQueue.main.async { [weak self] in
+            self?.whatsNewView.eventCollectionView.reloadData()
+        }
     }
 }

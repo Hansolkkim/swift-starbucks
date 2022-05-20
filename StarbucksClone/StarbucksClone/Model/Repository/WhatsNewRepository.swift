@@ -12,41 +12,45 @@ protocol WhatsNewEventGettable {
     mutating func setDelegate(delegate: WhatsNewRepositoryDelegate)
 }
 
-struct WhatsNewRepository: WhatsNewEventGettable {
+final class WhatsNewRepository: WhatsNewEventGettable {
 
     let whatsNewService: WhatsNewEventDataFetchable
-    var delegate: WhatsNewRepositoryDelegate?
+    weak var delegate: WhatsNewRepositoryDelegate?
+    var descriptions: [WhatsNewEventDescription]?
 
     init(whatsNewService: WhatsNewEventDataFetchable) {
         self.whatsNewService = whatsNewService
     }
 
     func getWhatsNewEventData() {
-        whatsNewService.fetchData(of: .fetchWhatsNewEventData) { result in
+        whatsNewService.fetchData(of: .fetchWhatsNewEventData) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let whatsNewDTOs):
-                getWhatsNewEvent(events: whatsNewDTOs)
+                self.getWhatsNewEvent(events: whatsNewDTOs)
+                self.delegate?.setWhatsNewEventDTOs(whatsNewDTOs)
             case .failure(let error):
-                delegate?.getWhatsNewEventError(error: error)
+                self.delegate?.getWhatsNewEventError(error: error)
             }
         }
     }
 
-    mutating func setDelegate(delegate: WhatsNewRepositoryDelegate) {
+    func setDelegate(delegate: WhatsNewRepositoryDelegate) {
         self.delegate = delegate
     }
 
     private func getWhatsNewEvent(events: [WhatsNewEventDTO]) {
-        for event in events {
-            var description = WhatsNewEventDescription(imageData: Data(), title: event.title, date: event.startAt)
+        for (index, event) in events.enumerated() {
+            var description = WhatsNewEventDescription(title: event.title, date: event.startAt, index: index)
 
-            whatsNewService.fetchImage(of: event.imageURL) { result in
+            whatsNewService.fetchImage(of: event.imageURL) { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .success(let imageData):
                     description.imageData = imageData
-                    delegate?.updateEventData(event: description)
+                    self.delegate?.updateEventData(event: description)
                 case .failure(let error):
-                    delegate?.getWhatsNewEventError(error: error)
+                    self.delegate?.getWhatsNewEventError(error: error)
                 }
             }
         }
@@ -56,4 +60,5 @@ struct WhatsNewRepository: WhatsNewEventGettable {
 protocol WhatsNewRepositoryDelegate: AnyObject {
     func updateEventData(event: WhatsNewEventDescription)
     func getWhatsNewEventError(error: NetworkError)
+    func setWhatsNewEventDTOs(_ dtos: [WhatsNewEventDTO])
 }

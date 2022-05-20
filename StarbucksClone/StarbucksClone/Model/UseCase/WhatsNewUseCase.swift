@@ -39,8 +39,13 @@ extension WhatsNewUseCase: WhatsNewRepositoryDelegate {
     func getWhatsNewEventError(error: NetworkError) {
         print("getWhatsNewEventError \(error)")
     }
+
+    func setWhatsNewEventDTOs(_ dtos: [WhatsNewEventDTO]) {
+        delegate?.updateEvents(dtos)
+    }
 }
 
 protocol WhatsNewUseCaseDelegate: AnyObject {
     func updateEvent(event: WhatsNewEventDescription)
+    func updateEvents(_ dtos: [WhatsNewEventDTO])
 }
