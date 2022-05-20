@@ -35,4 +35,8 @@ extension WhatsNewViewController: WhatsNewUseCaseDelegate {
     func updateEvent(event: WhatsNewEventDescription) {
         setWhatsNewEventCollectionData(event: event)
     }
+
+    func updateEventsCount(count: Int) {
+        eventDataSource.events = [WhatsNewEventDescription?](repeating: nil, count: count)
+    }
 }

@@ -16,14 +16,7 @@ final class WhatsNewRepository: WhatsNewEventGettable {
 
     let whatsNewService: WhatsNewEventDataFetchable
     weak var delegate: WhatsNewRepositoryDelegate?
-    var descriptions = [WhatsNewEventDescription]() {
-        didSet {
-            if descriptions.count == count {
-                
-            }
-        }
-    }
-    var count = 0
+    var descriptions: [WhatsNewEventDescription]?
 
     init(whatsNewService: WhatsNewEventDataFetchable) {
         self.whatsNewService = whatsNewService
@@ -34,7 +27,7 @@ final class WhatsNewRepository: WhatsNewEventGettable {
             guard let self = self else { return }
             switch result {
             case .success(let whatsNewDTOs):
-                self.count = whatsNewDTOs.count
+                self.delegate?.setWhatsNewEventCount(count: whatsNewDTOs.count)
                 self.getWhatsNewEvent(events: whatsNewDTOs)
             case .failure(let error):
                 self.delegate?.getWhatsNewEventError(error: error)
@@ -67,4 +60,5 @@ final class WhatsNewRepository: WhatsNewEventGettable {
 protocol WhatsNewRepositoryDelegate: AnyObject {
     func updateEventData(event: WhatsNewEventDescription)
     func getWhatsNewEventError(error: NetworkError)
+    func setWhatsNewEventCount(count: Int)
 }

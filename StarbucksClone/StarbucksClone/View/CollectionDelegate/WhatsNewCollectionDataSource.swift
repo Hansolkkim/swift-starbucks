@@ -8,7 +8,7 @@
 import UIKit
 
 final class WhatsNewCollectionDataSource: NSObject {
-    var events = [WhatsNewEventDescription]()
+    var events = [WhatsNewEventDescription?]()
 }
 
 extension WhatsNewCollectionDataSource: UICollectionViewDataSource {
@@ -21,8 +21,10 @@ extension WhatsNewCollectionDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        let event = events[indexPath.item]
-        cell.setInfo(by: event)
+        if let event = events[indexPath.item] {
+            cell.setInfo(by: event)
+        }
+
         return cell
     }
 }
