@@ -27,7 +27,6 @@ final class WhatsNewRepository: WhatsNewEventGettable {
             guard let self = self else { return }
             switch result {
             case .success(let whatsNewDTOs):
-                self.delegate?.setWhatsNewEventCount(count: whatsNewDTOs.count)
                 self.getWhatsNewEvent(events: whatsNewDTOs)
             case .failure(let error):
                 self.delegate?.getWhatsNewEventError(error: error)
@@ -60,5 +59,5 @@ final class WhatsNewRepository: WhatsNewEventGettable {
 protocol WhatsNewRepositoryDelegate: AnyObject {
     func updateEventData(event: WhatsNewEventDescription)
     func getWhatsNewEventError(error: NetworkError)
-    func setWhatsNewEventCount(count: Int)
+    func setWhatsNewEventDTOs(_ dtos: [WhatsNewEventDTO])
 }

@@ -40,12 +40,12 @@ extension WhatsNewUseCase: WhatsNewRepositoryDelegate {
         print("getWhatsNewEventError \(error)")
     }
 
-    func setWhatsNewEventCount(count: Int) {
-        delegate?.updateEventsCount(count: count)
+    func setWhatsNewEventDTOs(_ dtos: [WhatsNewEventDTO]) {
+        delegate?.updateEvents(dtos)
     }
 }
 
 protocol WhatsNewUseCaseDelegate: AnyObject {
     func updateEvent(event: WhatsNewEventDescription)
-    func updateEventsCount(count: Int)
+    func updateEvents(_ dtos: [WhatsNewEventDTO])
 }
