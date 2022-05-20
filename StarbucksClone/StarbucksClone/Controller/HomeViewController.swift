@@ -7,13 +7,29 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
-    
+final class HomeViewController: UIViewController, DependencySetable {
+    typealias DependencyType = HomeDependency
+
+    var dependency: DependencyType? {
+        didSet {
+            self.homeManagable = dependency?.manager
+        }
+    }
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = RecommendCollectionDataSource()
     private let homeScrollDelegate = HomeScrollViewDelegate()
     private let eventDataSource = HomeEventCollectionDataSource()
-    private var homeManagable: HomeManagable? = HomeUseCase(homeComponentsDataGettable: HomeRepository(homeService: HomeService()))
+    private var homeManagable: HomeManagable?
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        DependencyInjector.injecting(to: self)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        DependencyInjector.injecting(to: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +43,11 @@ final class HomeViewController: UIViewController {
         homeView.scrollView.delegate = homeScrollDelegate
         homeView.action = self
     }
-    
+
+    func setDependency(dependency: HomeDependency) {
+        self.dependency = dependency
+    }
+
     private func setNavigationCustomTitle(){
         guard let navigationBarFrame = navigationController?.navigationBar.frame else { return }
         let titleView = WhatsNewTitleView(frame: navigationBarFrame)
@@ -84,12 +104,6 @@ extension HomeViewController: HomeScrollActionDeleagte {
     
     func scrollMoveDown() {
         UIView.animate(withDuration: 0.3) {
-//            self.homeView.deliveryButton.snp.remakeConstraints { make in
-//                make.trailing.equalTo(self.homeView.safeAreaLayoutGuide.snp.trailing).offset(-20)
-//                make.bottom.equalTo(self.homeView.safeAreaLayoutGuide.snp.bottom).offset(-20)
-//                make.height.equalTo(60)
-//                make.width.equalTo(150)
-//            }
             self.homeView.foldingDelivaryView()
             self.homeView.layoutIfNeeded()
         }

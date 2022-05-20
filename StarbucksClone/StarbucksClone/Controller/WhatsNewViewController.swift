@@ -7,11 +7,27 @@
 
 import UIKit
 
-class WhatsNewViewController: UIViewController {
+class WhatsNewViewController: UIViewController, DependencySetable {
+    typealias DependencyType = WhatsNewDependency
 
+    var dependency: WhatsNewDependency? {
+        didSet {
+            self.whatsNewManagable = dependency?.manager
+        }
+    }
     private lazy var whatsNewView = WhatsNewView(frame: view.frame)
     private let eventDataSource = WhatsNewCollectionDataSource()
-    private var whatsNewManagable: WhatsNewManagable? = WhatsNewUseCase(whatsNewEventGettable: WhatsNewRepository(whatsNewService: WhatsNewService()))
+    private var whatsNewManagable: WhatsNewManagable?
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        DependencyInjector.injecting(to: self)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        DependencyInjector.injecting(to: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +37,11 @@ class WhatsNewViewController: UIViewController {
         whatsNewManagable?.setDelegate(delegate: self)
     }
 
-    private func setWhatsNewEventCollectionData(event: WhatsNewEventDescription) {
-//        eventDataSource.events.insert(event, at: event.index)
+    func setDependency(dependency: WhatsNewDependency) {
+        self.dependency = dependency
+    }
 
+    private func setWhatsNewEventCollectionData(event: WhatsNewEventDescription) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.eventDataSource.events[event.index]?.imageData = event.imageData

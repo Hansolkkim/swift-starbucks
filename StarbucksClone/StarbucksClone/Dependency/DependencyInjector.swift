@@ -6,28 +6,27 @@
 //
 
 import Foundation
+import UIKit
 
 final class DependencyInjector {
+    private static let dependencyDictionary: [ObjectIdentifier: Any] = [
+        ObjectIdentifier(SceneDelegate.self): SceneDependency(manager: SceneUseCase(userDefaultManagable: UserDefaultManager(), eventDataGettable: EventRepository(eventService: EventService()))),
+        ObjectIdentifier(LoginViewController.self): LoginDependency(manager: LoginUseCase(kakaoLoginable: KakaoLogin(), userDefaultManagable: UserDefaultManager(), eventDataGettable: EventRepository(eventService: EventService()))),
+        ObjectIdentifier(EventViewController.self): EventDependency(manager: EventUseCase(userDefaultManagable: UserDefaultManager())),
+        ObjectIdentifier(HomeViewController.self): HomeDependency(manager: HomeUseCase(homeComponentsDataGettable: HomeRepository(homeService: HomeService()))),
+        ObjectIdentifier(WhatsNewViewController.self): WhatsNewDependency(manager: WhatsNewUseCase(whatsNewEventGettable: WhatsNewRepository(whatsNewService: WhatsNewService())))]
+    
     static func injecting<T: DependencySetable>(to compose: T){
-        if compose is SceneDelegate {
-            guard let sceneDelegate = compose as? SceneDelegate else { return }
-            sceneDelegate.setDependency(dependency: SceneDependency(manager: SceneUseCase(userDefaultManagable: UserDefaultManager(), eventDataGettable: EventRepository(eventService: EventService()))))
-        }
-
-        else if compose is LoginViewController {
-            guard let loginViewController = compose as? LoginViewController else { return }
-            loginViewController.setDependency(dependency: LoginDependency(manager: LoginUseCase(kakaoLoginable: KakaoLogin(), userDefaultManagable: UserDefaultManager(), eventDataGettable: EventRepository(eventService: EventService()))))
-        }
-
-        else if compose is EventViewController {
-            guard let eventViewController = compose as? EventViewController else { return }
-            eventViewController.setDependency(dependency: EventDependency(manager: EventUseCase(userDefaultManagable: UserDefaultManager())))
-        }
+        guard let dependency = dependencyDictionary[ObjectIdentifier(type(of: compose.self))],
+              let detailedDependency = dependency as? T.DependencyType else {
+                  return
+              }
+        compose.setDependency(dependency: detailedDependency)
     }
 }
 
 
-protocol DependencySetable{
+protocol DependencySetable: AnyObject {
     associatedtype DependencyType
     func setDependency(dependency: DependencyType)
     var dependency: DependencyType? { get set }

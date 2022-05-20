@@ -22,6 +22,8 @@
 		02BBAED928362468003E4A9C /* WhatsNewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAED828362468003E4A9C /* WhatsNewService.swift */; };
 		02BBAEDB28362775003E4A9C /* WhatsNewEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEDA28362775003E4A9C /* WhatsNewEventDTO.swift */; };
 		02BBAEDD2836284F003E4A9C /* WhatsNewEventDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEDC2836284F003E4A9C /* WhatsNewEventDescription.swift */; };
+		02BBAEE1283771B1003E4A9C /* HomeDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEE0283771B0003E4A9C /* HomeDependency.swift */; };
+		02BBAEE328377236003E4A9C /* WhatNewDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BBAEE228377236003E4A9C /* WhatNewDependency.swift */; };
 		02DA60152832449500AE9C00 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60142832449500AE9C00 /* LoginDependency.swift */; };
 		02DA60172832489A00AE9C00 /* EventDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA60162832489A00AE9C00 /* EventDependency.swift */; };
 		02DA60402833714A00AE9C00 /* KakaoLoginStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA603E28336CEB00AE9C00 /* KakaoLoginStub.swift */; };
@@ -105,6 +107,8 @@
 		02BBAED828362468003E4A9C /* WhatsNewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewService.swift; sourceTree = "<group>"; };
 		02BBAEDA28362775003E4A9C /* WhatsNewEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewEventDTO.swift; sourceTree = "<group>"; };
 		02BBAEDC2836284F003E4A9C /* WhatsNewEventDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewEventDescription.swift; sourceTree = "<group>"; };
+		02BBAEE0283771B0003E4A9C /* HomeDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependency.swift; sourceTree = "<group>"; };
+		02BBAEE228377236003E4A9C /* WhatNewDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatNewDependency.swift; sourceTree = "<group>"; };
 		02DA60142832449500AE9C00 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
 		02DA60162832489A00AE9C00 /* EventDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDependency.swift; sourceTree = "<group>"; };
 		02DA603E28336CEB00AE9C00 /* KakaoLoginStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginStub.swift; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 				72888EDF2832404C005C032D /* SceneDependency.swift */,
 				02DA60142832449500AE9C00 /* LoginDependency.swift */,
 				02DA60162832489A00AE9C00 /* EventDependency.swift */,
+				02BBAEE0283771B0003E4A9C /* HomeDependency.swift */,
+				02BBAEE228377236003E4A9C /* WhatNewDependency.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 				02BBAEBF2834E553003E4A9C /* HomeEventDTO.swift in Sources */,
 				724CB067282A3EB4001DD361 /* LoginUseCase.swift in Sources */,
 				02E32FD82834041A0045A371 /* HomeUseCase.swift in Sources */,
+				02BBAEE328377236003E4A9C /* WhatNewDependency.swift in Sources */,
 				72888EDE28323F4A005C032D /* DependencyInjector.swift in Sources */,
 				02DFA2E1282B8CA1005834D6 /* SceneUseCase.swift in Sources */,
 				7202D2D82833742F00683403 /* HomeView.swift in Sources */,
@@ -707,6 +714,7 @@
 				02BBAEC12834EE43003E4A9C /* HomeEventDescription.swift in Sources */,
 				02BBAECB283611CB003E4A9C /* WhatsNewCollectionCell.swift in Sources */,
 				02E32FE2283404B50045A371 /* ProductDescription.swift in Sources */,
+				02BBAEE1283771B1003E4A9C /* HomeDependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

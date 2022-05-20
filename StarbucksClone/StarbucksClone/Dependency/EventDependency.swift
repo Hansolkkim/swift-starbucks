@@ -9,5 +9,5 @@ import Foundation
 
 struct EventDependency: Dependency {
     typealias ManagerType = EventManagable
-    let manager: EventManagable
+    let manager: ManagerType
 }

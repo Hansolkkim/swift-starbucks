@@ -18,7 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private var sceneManagable: SceneManagable?
-    //private let sceneUseCase = SceneUseCase(userDefaultManagable: UserDefaultManager())
     var window: UIWindow?
 
     override init(){
