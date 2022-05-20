@@ -82,7 +82,7 @@ class WhatsNewCollectionCell: UICollectionViewCell {
     }
 
     func setInfo(by whatsNewEvent: WhatsNewEventDescription) {
-        imageView.image = UIImage(data: whatsNewEvent.imageData)
+        imageView.image = UIImage(data: whatsNewEvent.imageData ?? Data())
         titleLabel.text = whatsNewEvent.title
         dateLabel.text = whatsNewEvent.date
     }

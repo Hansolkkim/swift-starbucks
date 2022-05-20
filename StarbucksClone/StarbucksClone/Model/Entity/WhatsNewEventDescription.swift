@@ -8,7 +8,7 @@
 import Foundation
 
 struct WhatsNewEventDescription {
-    var imageData: Data
+    var imageData: Data?
     var title: String
     var date: String
 }

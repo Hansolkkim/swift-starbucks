@@ -46,7 +46,9 @@ struct WhatsNewService: WhatsNewEventDataFetchable {
     }
 
     private func decodeData(of data: Data) -> [WhatsNewEventDTO]? {
-        return try? JSONDecoder().decode([WhatsNewEventDTO].self, from: data)
+        return try? JSONDecoder().decode([WhatsNewEventDTO].self, from: data).sorted(by: {
+            $0.startAt > $1.startAt
+        })
     }
 
     func fetchImage(of url: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
