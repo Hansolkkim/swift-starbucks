@@ -15,7 +15,7 @@
 ### 📷 Screenshots
 
 <pre>
-<img src="https://user-images.githubusercontent.com/92504186/177454906-4a7a1be6-b450-4fc3-a8ff-7e566e739f17.jpg" alt="SS2022-07-06AM11 25 13" style="zoom:50%;" />&nbsp;<img src="https://user-images.githubusercontent.com/92504186/177454944-e3b4f0ad-b6e8-4470-9574-e99ab8668a9d.jpg" alt="SS2022-07-06AM11 25 26" style="zoom:50%;" />&nbsp;<img src="https://user-images.githubusercontent.com/92504186/177454968-d857c7ad-62e8-4760-90fb-62bcec14c974.jpg" alt="SS2022-07-06AM11 26 44" style="zoom:50%;" />&nbsp;<img src="https://user-images.githubusercontent.com/92504186/177454980-bad6038d-d0e0-46de-9174-9be78a78f11d.jpg" alt="SS2022-07-06AM11 26 53" style="zoom:50%;" />&nbsp;
+<img src="https://user-images.githubusercontent.com/92504186/177454906-4a7a1be6-b450-4fc3-a8ff-7e566e739f17.jpg" alt="SS2022-07-06AM11 25 13" width="30%;" />&nbsp;<img src="https://user-images.githubusercontent.com/92504186/177454944-e3b4f0ad-b6e8-4470-9574-e99ab8668a9d.jpg" alt="SS2022-07-06AM11 25 26" width="30%;" />&nbsp;<img src="https://user-images.githubusercontent.com/92504186/177454968-d857c7ad-62e8-4760-90fb-62bcec14c974.jpg" alt="SS2022-07-06AM11 26 44" width="30%;" />&nbsp;<img src="https://user-images.githubusercontent.com/92504186/177454980-bad6038d-d0e0-46de-9174-9be78a78f11d.jpg" alt="SS2022-07-06AM11 26 53" width="30%;" />&nbsp;
 </pre>
 
 
