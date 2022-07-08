@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WhatsNewViewController: UIViewController, DependencySetable {
+class WhatsNewViewController: UIViewController, DependencySettable {
     typealias DependencyType = WhatsNewDependency
 
     var dependency: WhatsNewDependency? {
@@ -21,12 +21,12 @@ class WhatsNewViewController: UIViewController, DependencySetable {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
 
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class WhatsNewViewController: UIViewController, DependencySetable {
         whatsNewManagable?.setDelegate(delegate: self)
     }
 
-    func setDependency(dependency: WhatsNewDependency) {
+    func setDependency(_ dependency: WhatsNewDependency) {
         self.dependency = dependency
     }
 

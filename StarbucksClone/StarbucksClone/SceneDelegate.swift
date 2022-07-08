@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     override init(){
         super.init()
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -46,8 +46,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 }
-extension SceneDelegate: DependencySetable {
-    func setDependency(dependency: SceneDependency) {
+extension SceneDelegate: DependencySettable {
+    func setDependency(_ dependency: SceneDependency) {
         self.dependency = dependency
     }
 }

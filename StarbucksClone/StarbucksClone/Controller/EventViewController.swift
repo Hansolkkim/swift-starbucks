@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EventViewController: UIViewController, DependencySetable {
+class EventViewController: UIViewController, DependencySettable {
     typealias DependencyType = EventDependency
     var dependency: DependencyType? {
         didSet{
@@ -19,12 +19,12 @@ class EventViewController: UIViewController, DependencySetable {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class EventViewController: UIViewController, DependencySetable {
         }
     }
 
-    func setDependency(dependency: DependencyType) {
+    func setDependency(_ dependency: DependencyType) {
         self.dependency = dependency
     }
     

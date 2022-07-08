@@ -8,7 +8,7 @@
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class LoginViewController: UIViewController, DependencySetable {
+class LoginViewController: UIViewController, DependencySettable {
     typealias DependencyType = LoginDependency
     var dependency: DependencyType? {
         didSet{
@@ -20,12 +20,12 @@ class LoginViewController: UIViewController, DependencySetable {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
 
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, DependencySetable {
         loginManagable?.setDelegate(delegate: self)
     }
     
-    func setDependency(dependency: DependencyType) {
+    func setDependency(_ dependency: DependencyType) {
         self.dependency = dependency
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController, DependencySetable {
+final class HomeViewController: UIViewController, DependencySettable {
     typealias DependencyType = HomeDependency
 
     var dependency: DependencyType? {
@@ -23,12 +23,12 @@ final class HomeViewController: UIViewController, DependencySetable {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        DependencyInjector.injecting(to: self)
+        DependencyInjector.inject(to: self)
     }
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ final class HomeViewController: UIViewController, DependencySetable {
         homeView.action = self
     }
 
-    func setDependency(dependency: HomeDependency) {
+    func setDependency(_ dependency: HomeDependency) {
         self.dependency = dependency
     }
 
