@@ -106,3 +106,46 @@
 		그리고 각 Cell에 들어갈 이미지 데이터를 Service 객체를 통해 받아와서, 해당하는 이벤트 Entity의 index를 찾아서 넣어줄 수 있도록 했습니다.
 
 	- 해당 방법을 이용해 이벤트 등록 일자 순으로 정렬된 Cell을 가지는 CollectionView를 만들 수 있었습니다.
+
+4. 왜 의존성 당겨오는 방법을 사용했는가?
+
+	- 처음 계획했을 당시, 만들어야하는 화면의 수가 많아 각각의 화면에 해당하는 VC의 의존성을 주입해주기 위한 코드가 위치한 곳마다 길이가 너무 길어지는 문제가 발생할 것을 우려하여, 의존성 주입을 위한 객체(DependencyInjector)를 만들어 각 VC마다 의존성을 주입해주도록 계획했습니다.
+
+	- 모든 VC는 `setDependency(_:)` 라는 메소드를 가지도록, `DependencySettable` 프로토콜을 Comform하고 있고, 초기화 생성자 내에서 DependencyInjector의 `inject(to:)` 메소드를 호출하도록 되어있습니다. 해당 메소드에서는 VC의 `setDependency(_:)` 메소드를 호출하게 되고 이 때 각 VC의 의존성이 주입됩니다.
+
+		```swift
+		final class DependencyInjector {
+		    static func inject<T: DependencySettable>(to compose: T) {
+		        guard let dependency = ... else { return }
+		        compose.setDependency(dependency)
+		    }
+		}
+		
+		protocol DependencySettable: AnyObject {
+		    associatedtype DependencyType
+		    func setDependency(_ dependency: DependencyType)
+		    var dependency: DependencyType? { get }
+		}
+		
+		final class LoginViewController: UIViewController, DependencySettable {
+		    var dependency: DependencyType? {
+		        didSet {
+		            self.loginManagable = dependency?.manager
+		        }
+		    }
+			...
+		    private var loginManagable: LoginManagable?
+		
+		    init() {
+		        ...
+		        DependencyInjector.inject(to: self)
+		    }
+		
+		    func setDependency(_ dependency: DependencyType) {
+		        self.dependency = dependency
+		    }
+		}
+		
+		```
+
+		
