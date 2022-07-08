@@ -43,7 +43,7 @@ final class DependencyInjector {
 protocol DependencySettable: AnyObject {
     associatedtype DependencyType
     func setDependency(_ dependency: DependencyType)
-    var dependency: DependencyType? { get set }
+    var dependency: DependencyType? { get }
 }
 
 protocol Dependency{
